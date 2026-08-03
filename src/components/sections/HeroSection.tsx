@@ -1,21 +1,39 @@
+"use client";
+
 import Link from "next/link";
+import { type MouseEvent, useCallback, useState } from "react";
 import { TelemetryPanel } from "@/components/TelemetryPanel";
+import { CredentialMarquee } from "@/components/CredentialMarquee";
+import { MagneticButton } from "@/components/MagneticButton";
 
 export function HeroSection() {
+  const [spot, setSpot] = useState({ x: "72%", y: "28%" });
+
+  const onMove = useCallback((e: MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setSpot({
+      x: `${((e.clientX - rect.left) / rect.width) * 100}%`,
+      y: `${((e.clientY - rect.top) / rect.height) * 100}%`,
+    });
+  }, []);
+
   return (
-    <section className="hero-shell">
+    <section className="hero-shell" onMouseMove={onMove}>
+      <div className="hero-spotlight" style={{ left: spot.x, top: spot.y }} />
+      <div className="hero-scan" />
+
       <div
         className="container"
         style={{
           position: "relative",
-          paddingBlock: "clamp(40px, 6vw, 84px) clamp(48px, 6vw, 88px)",
+          paddingBlock: "clamp(48px, 7vw, 100px) clamp(48px, 6vw, 88px)",
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))",
           gap: "clamp(32px, 5vw, 64px)",
           alignItems: "center",
         }}
       >
-        <div>
+        <div className="anim-rise">
           <div
             style={{
               display: "flex",
@@ -25,6 +43,7 @@ export function HeroSection() {
             }}
           >
             <span
+              className="anim-pulse"
               style={{
                 width: 8,
                 height: 8,
@@ -76,7 +95,7 @@ export function HeroSection() {
           </p>
 
           <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-            <Link
+            <MagneticButton
               href="/contact"
               className="btn btn-primary"
               style={{
@@ -86,7 +105,7 @@ export function HeroSection() {
               }}
             >
               Get a rooftop assessment
-            </Link>
+            </MagneticButton>
             <Link
               href="/flagship"
               className="btn"
@@ -104,20 +123,12 @@ export function HeroSection() {
           </div>
         </div>
 
-        <TelemetryPanel />
-      </div>
-
-      <div className="hero-rail">
-        <div className="container hero-rail-inner">
-          <span>Reg. CH-16658</span>
-          <span>RE Policy 2025</span>
-          <span>SREDA Net Metering 2025</span>
-          <span>Tripartite PPA · WZPDCL</span>
-          <span style={{ color: "var(--color-accent-500)" }}>
-            Khulna Shipyard · signed 13 May 2026
-          </span>
+        <div className="anim-rise anim-float" style={{ animationDelay: "0.1s" }}>
+          <TelemetryPanel />
         </div>
       </div>
+
+      <CredentialMarquee />
     </section>
   );
 }

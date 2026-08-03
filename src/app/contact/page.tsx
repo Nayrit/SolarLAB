@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { PageHero } from "@/components/PageHero";
-import { ContactSection } from "@/components/sections/ContactSection";
+import { ContactPageView } from "@/components/sections/ContactPageView";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -9,14 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return (
-    <>
-      <PageHero
-        kicker="Contact"
-        title="Tell us about your roof"
-        description="Share your location, rooftop area and monthly bill — we'll return an indicative capacity, tariff and savings estimate."
-      />
-      <ContactSection />
-    </>
-  );
+  return <ContactPageView />;
 }

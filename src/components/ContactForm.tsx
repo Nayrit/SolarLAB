@@ -1,19 +1,25 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { MagneticButton } from "@/components/MagneticButton";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
   const [model, setModel] = useState("opex");
+  const [submitting, setSubmitting] = useState(false);
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setSubmitting(true);
+    await new Promise((r) => setTimeout(r, 500));
+    setSubmitting(false);
     setSent(true);
   }
 
   if (sent) {
     return (
       <div
+        className="anim-rise"
         style={{
           display: "flex",
           flexDirection: "column",
@@ -24,6 +30,7 @@ export function ContactForm() {
         }}
       >
         <span
+          className="anim-pulse"
           style={{
             width: 22,
             height: 22,
@@ -179,17 +186,18 @@ export function ContactForm() {
         />
       </div>
 
-      <button
+      <MagneticButton
         type="submit"
         className="btn btn-primary"
         style={{
           justifyContent: "flex-start",
           padding: "14px 22px",
           fontSize: 15,
+          opacity: submitting ? 0.75 : 1,
         }}
       >
-        Request assessment
-      </button>
+        {submitting ? "Sending…" : "Request assessment"}
+      </MagneticButton>
       <p
         style={{
           fontSize: 12,

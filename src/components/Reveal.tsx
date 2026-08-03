@@ -1,4 +1,12 @@
-import type { CSSProperties, ReactNode } from "react";
+"use client";
+
+import {
+  type CSSProperties,
+  type ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 type RevealProps = {
   children: ReactNode;
@@ -8,15 +16,38 @@ type RevealProps = {
   as?: "div" | "section" | "article" | "li";
 };
 
-/** Pass-through wrapper — kept so section markup stays stable without motion. */
 export function Reveal({
   children,
   className = "",
   style,
+  delay = 0,
   as: Tag = "div",
 }: RevealProps) {
+  const ref = useRef<HTMLElement | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <Tag className={className || undefined} style={style}>
+    <Tag
+      ref={ref as never}
+      className={`reveal${visible ? " is-visible" : ""}${className ? ` ${className}` : ""}`}
+      style={{ ...style, transitionDelay: `${delay}ms` }}
+    >
       {children}
     </Tag>
   );
