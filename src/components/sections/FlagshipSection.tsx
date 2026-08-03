@@ -1,4 +1,4 @@
-import { flagshipParties, flagshipStats } from "@/lib/content";
+import { flagshipParties, flagshipSheds, flagshipStats } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
 import { CountUp } from "@/components/CountUp";
 
@@ -229,12 +229,46 @@ export function FlagshipSection() {
                 color: "color-mix(in srgb, var(--color-text) 78%, transparent)",
               }}
             >
-              A defence-grade reference: it proves Solarhub can fund, build and
-              operate at scale for the most demanding institutional clients —
-              with zero client capital.
+              A defence-grade flagship: rooftop solar for a Bangladesh Navy
+              shipyard under a 22-year OPEX agreement. It proves Solarhub can
+              fund, build and operate at scale for the most demanding
+              institutional clients — with zero client capital.
             </p>
           </Reveal>
         </div>
+
+        <Reveal delay={160}>
+          <h3
+            style={{
+              fontSize: 13,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              margin: "52px 0 20px",
+            }}
+          >
+            Building-wise capacity
+          </h3>
+          <table className="table" style={{ maxWidth: 720 }}>
+            <thead>
+              <tr>
+                <th>Shed</th>
+                <th>Area m²</th>
+                <th>kWp</th>
+              </tr>
+            </thead>
+            <tbody>
+              {flagshipSheds.map((row) => (
+                <tr key={row.shed}>
+                  <td style={{ fontWeight: row.shed === "Total" ? 800 : 400 }}>
+                    {row.shed}
+                  </td>
+                  <td>{row.area}</td>
+                  <td>{row.kwp}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </Reveal>
       </div>
     </section>
   );

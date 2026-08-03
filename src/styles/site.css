@@ -695,6 +695,25 @@ summary::-webkit-details-marker {
   transform: translateY(-2px);
 }
 
+.leader-card {
+  height: 100%;
+  padding: 8px 0 24px;
+  border-top: 2px solid var(--color-divider);
+  transition: border-color 0.22s ease;
+}
+
+.leader-card:hover {
+  border-top-color: var(--color-accent);
+}
+
+.tech-card {
+  transition: transform 0.22s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-2px);
+}
+
 /* ─── FAQ ─── */
 
 .faq-item {

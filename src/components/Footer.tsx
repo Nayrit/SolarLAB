@@ -57,14 +57,14 @@ export function Footer() {
               <Link href="/about" style={{ color: "var(--color-bg)", textDecoration: "none" }}>
                 About
               </Link>
+              <Link href="/leadership" style={{ color: "var(--color-bg)", textDecoration: "none" }}>
+                Leadership
+              </Link>
               <Link href="/model" style={{ color: "var(--color-bg)", textDecoration: "none" }}>
                 Business model
               </Link>
               <Link href="/group" style={{ color: "var(--color-bg)", textDecoration: "none" }}>
                 Group &amp; affiliations
-              </Link>
-              <Link href="/#pipeline" style={{ color: "var(--color-bg)", textDecoration: "none" }}>
-                Growth pipeline
               </Link>
             </div>
           </div>
@@ -92,8 +92,8 @@ export function Footer() {
               <Link href="/services" style={{ color: "var(--color-bg)", textDecoration: "none" }}>
                 EPC &amp; OPEX solar
               </Link>
-              <Link href="/services" style={{ color: "var(--color-bg)", textDecoration: "none" }}>
-                Net metering
+              <Link href="/technology" style={{ color: "var(--color-bg)", textDecoration: "none" }}>
+                Technology
               </Link>
               <Link href="/services" style={{ color: "var(--color-bg)", textDecoration: "none" }}>
                 O&amp;M

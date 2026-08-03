@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { modelParties } from "@/lib/content";
+import { howItWorks, modelParties } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
 
 export function ModelSection() {
@@ -208,6 +208,66 @@ export function ModelSection() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={120}>
+          <h3
+            style={{
+              fontSize: 13,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "var(--color-accent-500)",
+              margin: "56px 0 28px",
+            }}
+          >
+            How it works
+          </h3>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+              gap: 2,
+              background: "color-mix(in srgb, var(--color-bg) 24%, transparent)",
+              borderTop:
+                "2px solid color-mix(in srgb, var(--color-bg) 24%, transparent)",
+              borderBottom:
+                "2px solid color-mix(in srgb, var(--color-bg) 24%, transparent)",
+            }}
+          >
+            {howItWorks.map((step) => (
+              <div
+                key={step.num}
+                className="model-party"
+                style={{ padding: "28px 24px" }}
+              >
+                <p
+                  style={{
+                    fontFamily: "var(--font-heading)",
+                    fontWeight: 800,
+                    fontSize: 14,
+                    color: "var(--color-accent-500)",
+                    margin: "0 0 12px",
+                  }}
+                >
+                  {step.num}
+                </p>
+                <h4 style={{ fontSize: 20, lineHeight: 1.2, margin: "0 0 10px" }}>
+                  {step.title}
+                </h4>
+                <p
+                  style={{
+                    fontSize: 14.5,
+                    lineHeight: 1.55,
+                    margin: 0,
+                    color:
+                      "color-mix(in srgb, var(--color-bg) 72%, transparent)",
+                  }}
+                >
+                  {step.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
 
         <Reveal delay={200}>
           <div style={{ marginTop: 40 }}>

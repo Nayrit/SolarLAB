@@ -1,4 +1,4 @@
-import { pipeline } from "@/lib/content";
+import { pipeline, pipelineFocus } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
 import { MagneticButton } from "@/components/MagneticButton";
 
@@ -14,15 +14,47 @@ export function PipelineSection() {
         }}
       >
         <Reveal>
-          <span className="kicker">08 — Growth pipeline</span>
+          <span className="kicker">Growth pipeline</span>
           <h2 className="display" style={{ maxWidth: "12ch" }}>
             Where we&apos;re headed
           </h2>
-          <p className="lede" style={{ maxWidth: "52ch" }}>
-            We pursue large industrial and institutional rooftops, creditworthy
-            long-horizon off-takers, and government and defence-linked
-            institutions — with power purchase terms tailored to each customer.
+          <p className="lede" style={{ maxWidth: "52ch", marginBottom: 24 }}>
+            What we pursue:
           </p>
+          <ul
+            style={{
+              listStyle: "none",
+              padding: 0,
+              margin: "0 0 32px",
+              display: "flex",
+              flexDirection: "column",
+              gap: 10,
+            }}
+          >
+            {pipelineFocus.map((item) => (
+              <li
+                key={item}
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: 12,
+                  fontSize: 15.5,
+                  lineHeight: 1.5,
+                }}
+              >
+                <span
+                  style={{
+                    width: 8,
+                    height: 8,
+                    marginTop: 7,
+                    background: "var(--color-accent)",
+                    flex: "none",
+                  }}
+                />
+                {item}
+              </li>
+            ))}
+          </ul>
           <MagneticButton
             href="/contact"
             className="btn btn-primary"

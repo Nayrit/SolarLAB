@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { aboutMeta } from "@/lib/content";
+import { aboutMeta, company } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
 
 export function AboutSection() {
@@ -18,16 +18,31 @@ export function AboutSection() {
           <h2 className="display" style={{ maxWidth: "15ch" }}>
             The energy company that carries the risk
           </h2>
-          <p className="lede">
-            Solarhub Technology Ltd. delivers rooftop solar to industrial and
-            institutional clients across Bangladesh under the OPEX model: we
-            fund, design, install and operate the system, and the client pays
-            only for the power consumed, at a discount to the grid tariff.
+          <p className="lede" style={{ marginBottom: 20 }}>
+            Solarhub Technology Ltd. is a Bangladeshi renewable-energy company
+            delivering rooftop solar power to industrial and institutional
+            clients under the OPEX (zero-capital) model, in which Solarhub
+            funds, designs, installs, and operates the solar system, and the
+            client pays only for the power consumed, at a discount to the grid
+            tariff.
           </p>
-          <p className="lede" style={{ marginBottom: 32 }}>
-            Every plant is structured under the Renewable Energy Policy 2025 and
-            the SREDA Net Metering Guideline 2025, as a tripartite agreement
-            between producer, off-taker and distribution utility.
+          <p className="lede" style={{ marginBottom: 20 }}>
+            The company operates under Bangladesh&apos;s Renewable Energy Policy
+            2025 and the SREDA Net Metering Guideline 2025, structuring
+            tripartite agreements between the power producer, the off-taker, and
+            the relevant distribution utility.
+          </p>
+          <p
+            style={{
+              fontFamily: "var(--font-heading)",
+              fontWeight: 800,
+              fontSize: 18,
+              lineHeight: 1.4,
+              margin: "0 0 28px",
+              maxWidth: "42ch",
+            }}
+          >
+            {company.opexLine}
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
             {["Fund", "Design", "Install", "Operate"].map((tag) => (
