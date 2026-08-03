@@ -14,7 +14,7 @@ export function StatsStrip() {
       <div
         className="grid-divider"
         style={{
-          gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 190px), 1fr))",
         }}
       >
         {stats.map((stat, i) => (

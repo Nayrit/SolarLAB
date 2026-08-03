@@ -65,11 +65,10 @@ export function HeroSection() {
 
           <h1
             style={{
-              fontSize: "clamp(44px, 7.4vw, 92px)",
+              fontSize: "clamp(36px, 9vw, 92px)",
               lineHeight: 0.98,
               letterSpacing: "-0.035em",
               margin: "0 0 28px",
-              marginLeft: "-0.05em",
             }}
           >
             <span style={{ display: "block" }}>Clean power,</span>
@@ -94,7 +93,7 @@ export function HeroSection() {
             permanently below the grid tariff.
           </p>
 
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
+          <div className="hero-actions">
             <MagneticButton
               href="/contact"
               className="btn btn-primary"

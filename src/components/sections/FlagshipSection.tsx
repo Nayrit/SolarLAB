@@ -45,7 +45,7 @@ export function FlagshipSection() {
         <div
           className="grid-divider"
           style={{
-            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 180px), 1fr))",
             marginBottom: 44,
           }}
         >
@@ -232,26 +232,28 @@ export function FlagshipSection() {
           >
             Building-wise capacity
           </h3>
-          <table className="table" style={{ maxWidth: 720 }}>
-            <thead>
-              <tr>
-                <th>Shed</th>
-                <th>Area m²</th>
-                <th>kWp</th>
-              </tr>
-            </thead>
-            <tbody>
-              {flagshipSheds.map((row) => (
-                <tr key={row.shed}>
-                  <td style={{ fontWeight: row.shed === "Total" ? 800 : 400 }}>
-                    {row.shed}
-                  </td>
-                  <td>{row.area}</td>
-                  <td>{row.kwp}</td>
+          <div className="table-scroll" style={{ maxWidth: 720 }}>
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Shed</th>
+                  <th>Area m²</th>
+                  <th>kWp</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {flagshipSheds.map((row) => (
+                  <tr key={row.shed}>
+                    <td style={{ fontWeight: row.shed === "Total" ? 800 : 400 }}>
+                      {row.shed}
+                    </td>
+                    <td>{row.area}</td>
+                    <td>{row.kwp}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </Reveal>
       </div>
     </section>

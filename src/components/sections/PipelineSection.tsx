@@ -70,11 +70,8 @@ export function PipelineSection() {
           {pipeline.map((item, i) => (
             <div
               key={item.title}
+              className="pipeline-row"
               style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                gap: 16,
                 padding: "22px 0",
                 borderTop:
                   i === 0
@@ -86,7 +83,7 @@ export function PipelineSection() {
                     : undefined,
               }}
             >
-              <div>
+              <div style={{ minWidth: 0 }}>
                 <h3 style={{ fontSize: 20, lineHeight: 1.2, margin: "0 0 4px" }}>
                   {item.title}
                 </h3>
@@ -101,7 +98,7 @@ export function PipelineSection() {
                   {item.body}
                 </p>
               </div>
-              <span className="tag tag-outline" style={{ whiteSpace: "nowrap" }}>
+              <span className="tag tag-outline" style={{ flexShrink: 0 }}>
                 {item.status}
               </span>
             </div>

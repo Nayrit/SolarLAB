@@ -20,7 +20,7 @@ export function GroupSection() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 170px), 1fr))",
             gap: "clamp(20px, 3vw, 40px)",
             paddingBottom: "clamp(32px, 4vw, 48px)",
             borderBottom: "2px solid var(--color-divider)",
@@ -45,7 +45,7 @@ export function GroupSection() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
             gap: "clamp(28px, 3.5vw, 48px)",
           }}
         >

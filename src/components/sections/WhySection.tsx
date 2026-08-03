@@ -19,7 +19,7 @@ export function WhySection() {
       <div
         className="grid-divider"
         style={{
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
         }}
       >
         {whySolarhub.map((item, i) => (

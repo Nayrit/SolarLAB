@@ -20,7 +20,7 @@ export function Footer() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))",
             gap: "clamp(28px, 4vw, 56px)",
             paddingBottom: 32,
             borderBottom:

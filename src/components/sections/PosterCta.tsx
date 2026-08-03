@@ -38,11 +38,10 @@ export function PosterCta() {
           </span>
           <h2
             style={{
-              fontSize: "clamp(36px, 5.4vw, 72px)",
+              fontSize: "clamp(32px, 8vw, 72px)",
               lineHeight: 1,
               letterSpacing: "-0.03em",
               margin: "0 0 28px",
-              marginLeft: "-0.05em",
               maxWidth: "16ch",
               color: "var(--color-bg)",
             }}
@@ -67,7 +66,7 @@ export function PosterCta() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 180px), 1fr))",
             gap: 2,
             background: "color-mix(in srgb, var(--color-bg) 35%, transparent)",
             borderTop:

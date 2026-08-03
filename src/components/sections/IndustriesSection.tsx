@@ -17,7 +17,7 @@ export function IndustriesSection() {
       <div
         className="grid-divider"
         style={{
-          gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 210px), 1fr))",
         }}
       >
         {industries.map((item, i) => (

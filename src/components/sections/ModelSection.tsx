@@ -34,14 +34,23 @@ export function ModelSection() {
         </Reveal>
 
         <Reveal delay={100}>
+          <ol className="model-flow-mobile" aria-label="Energy flow">
+            {[
+              "Sun",
+              "Solarhub-owned array",
+              "Inverter",
+              "Client load",
+              "Grid export",
+            ].map((label, i) => (
+              <li key={label}>
+                <span className="flow-num">0{i + 1}</span>
+                {label}
+              </li>
+            ))}
+          </ol>
           <svg
+            className="model-diagram"
             viewBox="0 0 1200 210"
-            style={{
-              width: "100%",
-              height: "auto",
-              display: "block",
-              marginBottom: 56,
-            }}
             aria-label="Energy flow: sun to array to inverter to client load, with surplus exported to the grid"
           >
             <g fontFamily="Archivo,sans-serif" fill="var(--color-bg)">
@@ -166,7 +175,7 @@ export function ModelSection() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
             gap: 2,
             background: "color-mix(in srgb, var(--color-bg) 24%, transparent)",
             borderTop:
@@ -224,7 +233,7 @@ export function ModelSection() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))",
               gap: 2,
               background: "color-mix(in srgb, var(--color-bg) 24%, transparent)",
               borderTop:

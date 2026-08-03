@@ -64,7 +64,7 @@ export function VisionSection() {
       <div
         className="grid-divider"
         style={{
-          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
         }}
       >
         {coreValues.map((value, i) => (

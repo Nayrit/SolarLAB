@@ -53,12 +53,8 @@ export function Logo({
       <span>SOLARHUB</span>
       {showSubtitle && (
         <span
+          className="logo-subtitle"
           style={{
-            fontFamily: "var(--font-body)",
-            fontWeight: 400,
-            fontSize: 10.5,
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
             color: light
               ? "color-mix(in srgb, var(--color-bg) 65%, transparent)"
               : "color-mix(in srgb, var(--color-text) 55%, transparent)",

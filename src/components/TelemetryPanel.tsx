@@ -181,10 +181,8 @@ export function TelemetryPanel() {
       </svg>
 
       <div
+        className="telemetry-metrics"
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: 12,
           paddingTop: 18,
           borderTop:
             "1px solid color-mix(in srgb, var(--color-bg) 22%, transparent)",
