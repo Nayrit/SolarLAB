@@ -2,45 +2,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap');
 
 :root {
-  /* Solar / green-energy ground — cool leaf undertone, not warm red-gray */
-  --color-bg: #f2f5f1;
-  --color-surface: #e7ece5;
-  --color-text: #1a221c;
-  --color-accent: #1f6f4a;
-  --color-accent-2: #2f8f5b;
-  --color-divider: color-mix(in srgb, #1a221c 38%, transparent);
+  /* Clean paper ground — green only as the accent, not washed into everything */
+  --color-bg: #f3f2f0;
+  --color-surface: #ebeae7;
+  --color-text: #1e1e1c;
+  --color-accent: #0a7a4b;
+  --color-accent-2: #0a7a4b;
+  --color-divider: color-mix(in srgb, #1e1e1c 40%, transparent);
 
-  /* Neutrals — charcoal with a faint green cast */
-  --color-neutral-100: #f5f8f4;
-  --color-neutral-200: #e8ebe6;
-  --color-neutral-300: #d1d7d0;
-  --color-neutral-400: #b2bab2;
-  --color-neutral-500: #919a91;
-  --color-neutral-600: #727b72;
-  --color-neutral-700: #575f57;
-  --color-neutral-800: #3d453e;
-  --color-neutral-900: #243029;
+  /* Neutrals stay ink/paper — no green cast */
+  --color-neutral-100: #f7f6f4;
+  --color-neutral-200: #ebeae7;
+  --color-neutral-300: #d8d6d3;
+  --color-neutral-400: #bbb8b4;
+  --color-neutral-500: #9c9995;
+  --color-neutral-600: #7e7b77;
+  --color-neutral-700: #605e5a;
+  --color-neutral-800: #434140;
+  --color-neutral-900: #222421;
 
-  /* Accent ramp — forest → leaf → mint */
-  --color-accent-100: #eef8f1;
-  --color-accent-200: #d5efdd;
-  --color-accent-300: #a9dfb8;
-  --color-accent-400: #5fc47c;
-  --color-accent-500: #35b06a;
-  --color-accent-600: #1f8a52;
-  --color-accent-700: #166b40;
-  --color-accent-800: #114d30;
-  --color-accent-900: #0c3422;
+  /* Accent ramp — use by context:
+     100–200 light fills/hovers on paper
+     500 bright labels on dark surfaces
+     base/600 buttons & chrome
+     700–800 small text on light ground */
+  --color-accent-100: #eaf7f0;
+  --color-accent-200: #d0eddc;
+  --color-accent-300: #a5dcbd;
+  --color-accent-400: #5cbf8a;
+  --color-accent-500: #2aad68;
+  --color-accent-600: #0c8a55;
+  --color-accent-700: #086b42;
+  --color-accent-800: #064d30;
+  --color-accent-900: #043422;
 
-  --color-accent-2-100: #eef8f1;
-  --color-accent-2-200: #d8f0e0;
-  --color-accent-2-300: #b0e0c0;
-  --color-accent-2-400: #68c88a;
-  --color-accent-2-500: #3fb872;
-  --color-accent-2-600: #2a9560;
-  --color-accent-2-700: #1f7249;
-  --color-accent-2-800: #165235;
-  --color-accent-2-900: #103826;
+  --color-accent-2-100: #eaf7f0;
+  --color-accent-2-200: #d0eddc;
+  --color-accent-2-300: #a5dcbd;
+  --color-accent-2-400: #5cbf8a;
+  --color-accent-2-500: #2aad68;
+  --color-accent-2-600: #0c8a55;
+  --color-accent-2-700: #086b42;
+  --color-accent-2-800: #064d30;
+  --color-accent-2-900: #043422;
 
   --font-heading: "Archivo", system-ui, sans-serif;
   --font-heading-weight: 800;
@@ -57,9 +61,9 @@
   --radius-md: 0px;
   --radius-lg: 0px;
 
-  --shadow-sm: 0 1px 2px color-mix(in srgb, #243029 14%, transparent);
-  --shadow-md: 0 3px 10px color-mix(in srgb, #243029 16%, transparent);
-  --shadow-lg: 0 12px 32px color-mix(in srgb, #243029 22%, transparent);
+  --shadow-sm: 0 1px 2px color-mix(in srgb, #222421 14%, transparent);
+  --shadow-md: 0 3px 10px color-mix(in srgb, #222421 16%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, #222421 22%, transparent);
 }
 
 body {
@@ -69,9 +73,7 @@ body {
 }
 h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); }
 
-.grayscale {
-  filter: grayscale(0.35) saturate(0.85) contrast(1.06);
-}
+.grayscale{filter:grayscale(1) contrast(1.08)}
 
 /* ══════════════════════════════════════════════════════════════════════════
    Components — built with the tokens above. Plain CSS
@@ -93,7 +95,7 @@ h5 { font-size: 16px; }
 h6 { font-size: 13px; }
 h6 { letter-spacing: 0.08em; text-transform: uppercase; }
 p { margin: 0 0 var(--space-3); }
-a { color: var(--color-accent); text-underline-offset: 3px; }
+a { color: var(--color-accent-700); text-underline-offset: 3px; }
 img { display: block; max-width: 100%; }
 figure { margin: 0; }
 figcaption {
@@ -130,7 +132,7 @@ figcaption {
 .btn-secondary { border-color: var(--color-divider); }
 .btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
 .btn-secondary:active { background: color-mix(in srgb, var(--color-text) 14%, transparent); }
-.btn-ghost { color: var(--color-accent); padding-inline: var(--space-1); }
+.btn-ghost { color: var(--color-accent-700); padding-inline: var(--space-1); }
 .btn-ghost:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); }
 .btn-ghost:active { background: color-mix(in srgb, var(--color-accent) 18%, transparent); }
 .btn-icon { width: 36px; height: 36px; padding: 0; }
@@ -182,7 +184,7 @@ textarea.input { min-height: 90px; resize: vertical; }
   display: flex; flex-direction: column; gap: var(--space-2);
   padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface);
 }
-.card-kicker { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); }
+.card-kicker { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700); }
 .card-title {
   font-family: var(--font-heading); font-weight: var(--font-heading-weight);
   font-size: 17px; line-height: 1.2;
@@ -205,7 +207,7 @@ textarea.input { min-height: 90px; resize: vertical; }
 .tag-accent { background: var(--color-accent-100); color: var(--color-accent-800); }
 .tag-accent-2 { background: var(--color-accent-2-100); color: var(--color-accent-2-800); }
 .tag-neutral { background: var(--color-neutral-100); color: var(--color-neutral-800); }
-.tag-outline { border: 1px solid var(--color-accent); color: var(--color-accent); }
+.tag-outline { border: 1px solid var(--color-accent-700); color: var(--color-accent-700); }
 
 /* — navigation — */
 .nav {
@@ -218,7 +220,7 @@ textarea.input { min-height: 90px; resize: vertical; }
   font-size: 18px; margin-right: auto;
 }
 .nav a { color: inherit; text-decoration: none; font-size: 14px; }
-.nav a:hover, .nav a[aria-current='page'] { color: var(--color-accent); }
+.nav a:hover, .nav a[aria-current='page'] { color: var(--color-accent-700); }
 
 /* — tables — */
 .table { width: 100%; border-collapse: collapse; font-size: 14px; }

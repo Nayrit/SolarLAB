@@ -42,7 +42,7 @@ export function ProcessSection() {
                 fontWeight: 800,
                 fontSize: 16,
                 margin: 0,
-                color: "var(--color-accent)",
+                color: "var(--color-accent-700)",
               }}
             >
               {step.num}

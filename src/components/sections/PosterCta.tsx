@@ -31,7 +31,7 @@ export function PosterCta() {
               letterSpacing: "0.16em",
               textTransform: "uppercase",
               marginBottom: 24,
-              color: "color-mix(in srgb, var(--color-bg) 75%, transparent)",
+              color: "color-mix(in srgb, var(--color-bg) 78%, transparent)",
             }}
           >
             Why partner with us
@@ -44,6 +44,7 @@ export function PosterCta() {
               margin: "0 0 28px",
               marginLeft: "-0.04em",
               maxWidth: "14ch",
+              color: "var(--color-bg)",
             }}
           >
             <span style={{ display: "block" }}>Put your roof to work.</span>
@@ -55,6 +56,7 @@ export function PosterCta() {
               lineHeight: 1.6,
               maxWidth: "56ch",
               margin: "0 0 40px",
+              color: "color-mix(in srgb, var(--color-bg) 88%, transparent)",
             }}
           >
             Everything you need to switch to cleaner, cheaper power — delivered
@@ -67,11 +69,11 @@ export function PosterCta() {
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
             gap: 2,
-            background: "color-mix(in srgb, var(--color-bg) 28%, transparent)",
+            background: "color-mix(in srgb, var(--color-bg) 35%, transparent)",
             borderTop:
-              "2px solid color-mix(in srgb, var(--color-bg) 28%, transparent)",
+              "2px solid color-mix(in srgb, var(--color-bg) 35%, transparent)",
             borderBottom:
-              "2px solid color-mix(in srgb, var(--color-bg) 28%, transparent)",
+              "2px solid color-mix(in srgb, var(--color-bg) 35%, transparent)",
             marginBottom: 44,
           }}
         >
@@ -80,7 +82,9 @@ export function PosterCta() {
               key={item.title}
               delay={i * 40}
               style={{
-                background: "var(--color-accent)",
+                /* Paper cards on green field — never green-on-green */
+                background: "var(--color-bg)",
+                color: "var(--color-text)",
                 padding: "24px 22px",
               }}
             >
@@ -92,7 +96,7 @@ export function PosterCta() {
                   fontSize: 14,
                   lineHeight: 1.5,
                   margin: 0,
-                  color: "color-mix(in srgb, var(--color-bg) 82%, transparent)",
+                  color: "color-mix(in srgb, var(--color-text) 72%, transparent)",
                 }}
               >
                 {item.body}
@@ -108,7 +112,7 @@ export function PosterCta() {
             style={{
               textDecoration: "none",
               background: "var(--color-bg)",
-              color: "var(--color-accent)",
+              color: "var(--color-accent-800)",
               padding: "18px 30px",
               fontSize: 17,
             }}

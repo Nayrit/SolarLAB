@@ -61,7 +61,7 @@ export function ServicesSection() {
                     fontWeight: 800,
                     fontSize: 13,
                     letterSpacing: "0.1em",
-                    color: "var(--color-accent)",
+                    color: "var(--color-accent-700)",
                   }}
                 >
                   {service.num}

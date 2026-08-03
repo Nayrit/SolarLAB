@@ -28,7 +28,7 @@ export function LeadershipSection() {
                     fontSize: 11,
                     letterSpacing: "0.14em",
                     textTransform: "uppercase",
-                    color: "var(--color-accent)",
+                    color: "var(--color-accent-700)",
                     marginBottom: 10,
                   }}
                 >
