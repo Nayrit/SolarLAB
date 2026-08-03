@@ -2,44 +2,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap');
 
 :root {
-  --color-bg: #f3f2f2;
-  --color-surface: #eae9e9;
-  --color-text: #201e1d;
-  --color-accent: #ec3013;
-  --color-accent-2: #e15b47;
-  --color-divider: color-mix(in srgb, #201e1d 40%, transparent);
+  /* Solar / green-energy ground — cool leaf undertone, not warm red-gray */
+  --color-bg: #f2f5f1;
+  --color-surface: #e7ece5;
+  --color-text: #1a221c;
+  --color-accent: #1f6f4a;
+  --color-accent-2: #2f8f5b;
+  --color-divider: color-mix(in srgb, #1a221c 38%, transparent);
 
-  /* Tonal ramps — generated in OKLCH on one shared lightness scale, so the
-     same step of any role matches the others in visual value. */
-  --color-neutral-100: #f8f4f4;
-  --color-neutral-200: #eae7e7;
-  --color-neutral-300: #d7d3d3;
-  --color-neutral-400: #bab6b6;
-  --color-neutral-500: #9b9797;
-  --color-neutral-600: #7d7979;
-  --color-neutral-700: #605d5d;
-  --color-neutral-800: #444141;
-  --color-neutral-900: #2d2b2b;
+  /* Neutrals — charcoal with a faint green cast */
+  --color-neutral-100: #f5f8f4;
+  --color-neutral-200: #e8ebe6;
+  --color-neutral-300: #d1d7d0;
+  --color-neutral-400: #b2bab2;
+  --color-neutral-500: #919a91;
+  --color-neutral-600: #727b72;
+  --color-neutral-700: #575f57;
+  --color-neutral-800: #3d453e;
+  --color-neutral-900: #243029;
 
-  --color-accent-100: #fff2ef;
-  --color-accent-200: #ffe0d9;
-  --color-accent-300: #ffc4b8;
-  --color-accent-400: #ff9783;
-  --color-accent-500: #ff563c;
-  --color-accent-600: #dd2b0f;
-  --color-accent-700: #ae1800;
-  --color-accent-800: #7c1405;
-  --color-accent-900: #4d170e;
+  /* Accent ramp — forest → leaf → mint */
+  --color-accent-100: #eef8f1;
+  --color-accent-200: #d5efdd;
+  --color-accent-300: #a9dfb8;
+  --color-accent-400: #5fc47c;
+  --color-accent-500: #35b06a;
+  --color-accent-600: #1f8a52;
+  --color-accent-700: #166b40;
+  --color-accent-800: #114d30;
+  --color-accent-900: #0c3422;
 
-  --color-accent-2-100: #fff2ef;
-  --color-accent-2-200: #ffe0da;
-  --color-accent-2-300: #ffc4b9;
-  --color-accent-2-400: #ff9784;
-  --color-accent-2-500: #ef6853;
-  --color-accent-2-600: #c94b39;
-  --color-accent-2-700: #9e3526;
-  --color-accent-2-800: #71261b;
-  --color-accent-2-900: #471d16;
+  --color-accent-2-100: #eef8f1;
+  --color-accent-2-200: #d8f0e0;
+  --color-accent-2-300: #b0e0c0;
+  --color-accent-2-400: #68c88a;
+  --color-accent-2-500: #3fb872;
+  --color-accent-2-600: #2a9560;
+  --color-accent-2-700: #1f7249;
+  --color-accent-2-800: #165235;
+  --color-accent-2-900: #103826;
 
   --font-heading: "Archivo", system-ui, sans-serif;
   --font-heading-weight: 800;
@@ -56,11 +57,9 @@
   --radius-md: 0px;
   --radius-lg: 0px;
 
-  /* Elevation — derived from the ground: soft ink-tinted shadows on a
-     light theme, a hairline edge + ambient darkness on a dark one. */
-  --shadow-sm: 0 1px 2px color-mix(in srgb, #2d2b2b 14%, transparent);
-  --shadow-md: 0 3px 10px color-mix(in srgb, #2d2b2b 16%, transparent);
-  --shadow-lg: 0 12px 32px color-mix(in srgb, #2d2b2b 22%, transparent);
+  --shadow-sm: 0 1px 2px color-mix(in srgb, #243029 14%, transparent);
+  --shadow-md: 0 3px 10px color-mix(in srgb, #243029 16%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, #243029 22%, transparent);
 }
 
 body {
@@ -70,7 +69,9 @@ body {
 }
 h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); }
 
-.grayscale{filter:grayscale(1) contrast(1.08)}
+.grayscale {
+  filter: grayscale(0.35) saturate(0.85) contrast(1.06);
+}
 
 /* ══════════════════════════════════════════════════════════════════════════
    Components — built with the tokens above. Plain CSS
