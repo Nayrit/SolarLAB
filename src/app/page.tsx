@@ -9,8 +9,8 @@ import { FlagshipSection } from "@/components/sections/FlagshipSection";
 import { GroupSection } from "@/components/sections/GroupSection";
 import { PipelineSection } from "@/components/sections/PipelineSection";
 import { FaqSection } from "@/components/sections/FaqSection";
-import { PosterCta } from "@/components/sections/PosterCta";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { PosterCta } from "@/components/sections/PosterCta";
 
 export default function HomePage() {
   return (
@@ -26,8 +26,8 @@ export default function HomePage() {
       <GroupSection />
       <PipelineSection />
       <FaqSection />
-      <PosterCta />
       <ContactSection />
+      <PosterCta />
     </>
   );
 }

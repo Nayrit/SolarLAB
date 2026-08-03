@@ -50,7 +50,7 @@ export function ModelSection() {
                 cx="70"
                 cy="105"
                 r="28"
-                fill="var(--color-accent)"
+                fill="#e8b84a"
               />
               <text
                 x="44"
