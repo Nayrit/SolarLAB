@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/Reveal";
 import { FaqAccordion } from "@/components/FaqAccordion";
 
 export function FaqSection() {
@@ -5,12 +6,14 @@ export function FaqSection() {
     <section
       id="faq"
       className="container"
-      style={{ paddingBottom: "clamp(48px, 6vw, 96px)" }}
+      style={{ paddingBottom: "clamp(72px, 10vw, 140px)" }}
     >
-      <span className="kicker">09 — Questions</span>
-      <h2 className="display" style={{ maxWidth: "18ch", marginBottom: 44 }}>
-        Before you sign
-      </h2>
+      <Reveal>
+        <span className="kicker">09 — Questions</span>
+        <h2 className="display" style={{ maxWidth: "16ch", marginBottom: 52 }}>
+          Before you sign
+        </h2>
+      </Reveal>
       <FaqAccordion />
     </section>
   );

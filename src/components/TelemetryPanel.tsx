@@ -13,31 +13,41 @@ export function TelemetryPanel() {
   const [kw, setKw] = useState(1412.6);
   const [kwh, setKwh] = useState(6218);
   const [co2, setCo2] = useState(3.1);
+  const [spark, setSpark] = useState<number[]>(() =>
+    Array.from({ length: 28 }, (_, i) => 1100 + Math.sin(i / 2.4) * 180 + i * 4),
+  );
 
   useEffect(() => {
     const timer = setInterval(() => {
       setKw((prev) => {
-        const next = Math.min(1498, Math.max(940, prev + (Math.random() - 0.42) * 34));
+        const next = Math.min(
+          1498,
+          Math.max(940, prev + (Math.random() - 0.42) * 34),
+        );
         setKwh((k) => {
           const updated = k + (next / 3600) * 1.4;
           setCo2(updated * 0.0005);
           return updated;
         });
+        setSpark((s) => [...s.slice(1), next]);
         return next;
       });
-    }, 1400);
+    }, 1200);
     return () => clearInterval(timer);
   }, []);
 
+  const max = Math.max(...spark);
+  const min = Math.min(...spark);
+  const points = spark
+    .map((v, i) => {
+      const x = (i / (spark.length - 1)) * 520;
+      const y = 48 - ((v - min) / (max - min || 1)) * 36;
+      return `${x},${y}`;
+    })
+    .join(" ");
+
   return (
-    <div
-      style={{
-        position: "relative",
-        border: "2px solid color-mix(in srgb, var(--color-bg) 22%, transparent)",
-        padding: 18,
-        background: "color-mix(in srgb, #000 22%, transparent)",
-      }}
-    >
+    <div className="telemetry-panel">
       <div
         style={{
           display: "flex",
@@ -61,6 +71,7 @@ export function TelemetryPanel() {
           Live plant telemetry · simulated
         </span>
         <span
+          className="anim-blink"
           style={{
             fontSize: 10.5,
             letterSpacing: "0.16em",
@@ -71,6 +82,25 @@ export function TelemetryPanel() {
           ● Generating
         </span>
       </div>
+
+      <svg
+        viewBox="0 0 520 56"
+        style={{ width: "100%", height: "auto", display: "block", marginBottom: 12 }}
+        aria-hidden="true"
+      >
+        <polyline
+          points={points}
+          fill="none"
+          stroke="var(--color-accent)"
+          strokeWidth="2"
+          opacity="0.9"
+        />
+        <polyline
+          points={`${points} 520,56 0,56`}
+          fill="color-mix(in srgb, var(--color-accent) 18%, transparent)"
+          stroke="none"
+        />
+      </svg>
 
       <svg
         viewBox="0 0 520 260"
@@ -91,7 +121,7 @@ export function TelemetryPanel() {
           strokeDasharray="640"
           className="anim-sweep"
         />
-        <circle cx="228" cy="26" r="13" fill="var(--color-accent)" />
+        <circle cx="228" cy="26" r="13" fill="var(--color-accent)" className="anim-pulse" />
         <g stroke="var(--color-accent)" strokeWidth="1.6" opacity=".8">
           <path d="M150 78 120 116M186 78 168 118M222 80 216 120M258 82 264 120" />
         </g>
@@ -209,7 +239,7 @@ function Metric({ value, label }: { value: string; label: string }) {
         style={{
           fontFamily: "var(--font-heading)",
           fontWeight: 800,
-          fontSize: "clamp(20px, 2vw, 28px)",
+          fontSize: "clamp(22px, 2.2vw, 30px)",
           margin: "0 0 4px",
           color: "var(--color-bg)",
           fontVariantNumeric: "tabular-nums",

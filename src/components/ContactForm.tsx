@@ -1,42 +1,49 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { MagneticButton } from "@/components/MagneticButton";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
   const [model, setModel] = useState("opex");
+  const [submitting, setSubmitting] = useState(false);
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setSubmitting(true);
+    await new Promise((r) => setTimeout(r, 650));
+    setSubmitting(false);
     setSent(true);
   }
 
   if (sent) {
     return (
       <div
+        className="anim-rise"
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: 16,
+          gap: 18,
           alignItems: "flex-start",
-          minHeight: 360,
+          minHeight: 400,
           justifyContent: "center",
         }}
       >
         <span
+          className="anim-pulse"
           style={{
-            width: 22,
-            height: 22,
+            width: 24,
+            height: 24,
             background: "var(--color-accent)",
             display: "block",
           }}
         />
-        <h3 style={{ fontSize: 26, lineHeight: 1.2, margin: 0 }}>
+        <h3 style={{ fontSize: 30, lineHeight: 1.15, margin: 0 }}>
           Request received
         </h3>
         <p
           style={{
-            fontSize: 15.5,
+            fontSize: 16.5,
             lineHeight: 1.65,
             margin: 0,
             maxWidth: "40ch",
@@ -70,9 +77,9 @@ export function ContactForm() {
   return (
     <form
       onSubmit={onSubmit}
-      style={{ display: "flex", flexDirection: "column", gap: 16 }}
+      style={{ display: "flex", flexDirection: "column", gap: 18 }}
     >
-      <h3 style={{ fontSize: 22, lineHeight: 1.2, margin: "0 0 4px" }}>
+      <h3 style={{ fontSize: 26, lineHeight: 1.2, margin: "0 0 4px" }}>
         Request a rooftop assessment
       </h3>
 
@@ -179,17 +186,18 @@ export function ContactForm() {
         />
       </div>
 
-      <button
+      <MagneticButton
         type="submit"
         className="btn btn-primary"
         style={{
           justifyContent: "flex-start",
-          padding: "14px 22px",
-          fontSize: 15,
+          padding: "16px 24px",
+          fontSize: 16,
+          opacity: submitting ? 0.7 : 1,
         }}
       >
-        Request assessment
-      </button>
+        {submitting ? "Sending…" : "Request assessment"}
+      </MagneticButton>
       <p
         style={{
           fontSize: 12,

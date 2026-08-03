@@ -1,4 +1,12 @@
-import { heroStats } from "@/lib/content";
+import { Reveal } from "@/components/Reveal";
+import { CountUp } from "@/components/CountUp";
+
+const stats = [
+  { end: 1.788, decimals: 3, suffix: " MWp", label: "Flagship in construction" },
+  { end: 22, decimals: 0, suffix: " YRS", label: "Power purchase term" },
+  { end: 18, decimals: 0, suffix: " %", label: "Off-peak tariff discount" },
+  { end: 0, decimals: 0, suffix: " BDT", label: "Capital from the client" },
+];
 
 export function StatsStrip() {
   return (
@@ -6,17 +14,21 @@ export function StatsStrip() {
       <div
         className="grid-divider"
         style={{
-          gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
         }}
       >
-        {heroStats.map((stat) => (
-          <div key={stat.label} style={{ padding: "26px 22px" }}>
+        {stats.map((stat, i) => (
+          <Reveal key={stat.label} delay={i * 80} style={{ padding: "32px 26px" }}>
             <p className="stat-value">
-              {stat.value}
-              <span>{stat.unit}</span>
+              <CountUp
+                end={stat.end}
+                decimals={stat.decimals}
+                suffix={stat.suffix}
+                duration={1400 + i * 120}
+              />
             </p>
             <p className="stat-label">{stat.label}</p>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>

@@ -1,15 +1,10 @@
 import Link from "next/link";
+import { MagneticButton } from "@/components/MagneticButton";
+import { Reveal } from "@/components/Reveal";
 
 export function PosterCta() {
   return (
-    <section
-      style={{
-        background: "var(--color-accent)",
-        color: "var(--color-bg)",
-        overflow: "hidden",
-        position: "relative",
-      }}
-    >
+    <section className="poster-cta">
       <div
         style={{
           position: "absolute",
@@ -24,46 +19,49 @@ export function PosterCta() {
         className="container"
         style={{
           position: "relative",
-          paddingBlock: "clamp(52px, 7vw, 104px)",
+          paddingBlock: "clamp(72px, 10vw, 140px)",
+          zIndex: 1,
         }}
       >
-        <h2
-          style={{
-            fontSize: "clamp(36px, 5.4vw, 72px)",
-            lineHeight: 1,
-            letterSpacing: "-0.03em",
-            margin: "0 0 28px",
-            marginLeft: "-0.05em",
-            maxWidth: "16ch",
-          }}
-        >
-          <span style={{ display: "block" }}>Put your roof to work.</span>
-          <span style={{ display: "block" }}>Zero capital, zero risk.</span>
-        </h2>
-        <p
-          style={{
-            fontSize: "clamp(16px, 1.4vw, 20px)",
-            lineHeight: 1.6,
-            maxWidth: "56ch",
-            margin: "0 0 34px",
-          }}
-        >
-          Cleaner, cheaper power from day one — financed, engineered and operated
-          by a single accountable partner.
-        </p>
-        <Link
-          href="/contact"
-          className="btn"
-          style={{
-            textDecoration: "none",
-            background: "var(--color-bg)",
-            color: "var(--color-accent)",
-            padding: "15px 26px",
-            fontSize: 16,
-          }}
-        >
-          Start a conversation about your rooftop
-        </Link>
+        <Reveal>
+          <h2
+            style={{
+              fontSize: "clamp(44px, 6.8vw, 92px)",
+              lineHeight: 0.96,
+              letterSpacing: "-0.035em",
+              margin: "0 0 32px",
+              marginLeft: "-0.04em",
+              maxWidth: "14ch",
+            }}
+          >
+            <span style={{ display: "block" }}>Put your roof to work.</span>
+            <span style={{ display: "block" }}>Zero capital, zero risk.</span>
+          </h2>
+          <p
+            style={{
+              fontSize: "clamp(17px, 1.5vw, 22px)",
+              lineHeight: 1.6,
+              maxWidth: "56ch",
+              margin: "0 0 40px",
+            }}
+          >
+            Cleaner, cheaper power from day one — financed, engineered and
+            operated by a single accountable partner.
+          </p>
+          <MagneticButton
+            href="/contact"
+            className="btn"
+            style={{
+              textDecoration: "none",
+              background: "var(--color-bg)",
+              color: "var(--color-accent)",
+              padding: "18px 30px",
+              fontSize: 17,
+            }}
+          >
+            Start a conversation about your rooftop
+          </MagneticButton>
+        </Reveal>
       </div>
     </section>
   );

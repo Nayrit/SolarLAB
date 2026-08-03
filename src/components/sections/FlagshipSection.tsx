@@ -1,87 +1,106 @@
 import { flagshipParties, flagshipStats } from "@/lib/content";
+import { Reveal } from "@/components/Reveal";
+import { CountUp } from "@/components/CountUp";
 
 export function FlagshipSection() {
   return (
     <section id="flagship" style={{ background: "var(--color-surface)" }}>
       <div className="container section">
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            gap: 14,
-            marginBottom: 24,
-          }}
-        >
-          <span className="kicker" style={{ margin: 0 }}>
-            04 — Flagship project
-          </span>
-          <span
-            className="tag"
+        <Reveal>
+          <div
             style={{
-              background: "var(--color-accent)",
-              color: "var(--color-bg)",
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              fontSize: 10.5,
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              gap: 14,
+              marginBottom: 28,
             }}
           >
-            Signed · in construction
-          </span>
-        </div>
-        <h2 className="display" style={{ maxWidth: "20ch" }}>
-          Khulna Shipyard Limited
-        </h2>
-        <p className="lede" style={{ maxWidth: "64ch", marginBottom: 44 }}>
-          A 22-year tripartite Power Purchase Agreement with Khulna Shipyard
-          Ltd., a Bangladesh Navy installation, and West Zone Power Distribution
-          Company Ltd. — rooftop solar under the OPEX model, signed 13 May 2026
-          in Khulna.
-        </p>
+            <span className="kicker" style={{ margin: 0 }}>
+              04 — Flagship project
+            </span>
+            <span
+              className="tag anim-blink"
+              style={{
+                background: "var(--color-accent)",
+                color: "var(--color-bg)",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                fontSize: 11,
+              }}
+            >
+              Signed · in construction
+            </span>
+          </div>
+          <h2 className="display" style={{ maxWidth: "18ch" }}>
+            Khulna Shipyard Limited
+          </h2>
+          <p className="lede" style={{ maxWidth: "64ch", marginBottom: 52 }}>
+            A 22-year tripartite Power Purchase Agreement with Khulna Shipyard
+            Ltd., a Bangladesh Navy installation, and West Zone Power
+            Distribution Company Ltd. — rooftop solar under the OPEX model,
+            signed 13 May 2026 in Khulna.
+          </p>
+        </Reveal>
 
         <div
           className="grid-divider"
           style={{
             gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-            marginBottom: 44,
+            marginBottom: 52,
           }}
         >
-          {flagshipStats.map((stat) => (
-            <div
+          {flagshipStats.map((stat, i) => (
+            <Reveal
               key={stat.label}
+              delay={i * 70}
               style={{
                 background: "var(--color-surface)",
-                padding: "24px 20px",
+                padding: "28px 22px",
               }}
             >
               <p
                 className="stat-value"
-                style={{ fontSize: "clamp(28px, 3vw, 42px)", marginBottom: 8 }}
+                style={{ fontSize: "clamp(32px, 3.4vw, 48px)", marginBottom: 8 }}
               >
-                {stat.value}
+                {stat.value.includes("MWp") ? (
+                  <>
+                    <CountUp end={1.788} decimals={3} /> MWp
+                  </>
+                ) : stat.value.includes("yrs") ? (
+                  <>
+                    <CountUp end={22} /> yrs
+                  </>
+                ) : stat.value.includes("%") ? (
+                  <>
+                    <CountUp end={18} /> %
+                  </>
+                ) : (
+                  stat.value
+                )}
               </p>
               <p className="stat-label" style={{ fontSize: 11 }}>
                 {stat.label}
               </p>
-            </div>
+            </Reveal>
           ))}
         </div>
 
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%,300px), 1fr))",
-            gap: "clamp(32px, 4vw, 64px)",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%,320px), 1fr))",
+            gap: "clamp(36px, 5vw, 72px)",
             alignItems: "start",
           }}
         >
-          <div>
+          <Reveal>
             <h3
               style={{
-                fontSize: 12.5,
+                fontSize: 13,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                margin: "0 0 18px",
+                margin: "0 0 20px",
               }}
             >
               Roof plan · capacity by shed
@@ -108,6 +127,7 @@ export function FlagshipSection() {
                 fill="color-mix(in srgb, var(--color-accent) 14%, transparent)"
                 stroke="var(--color-accent)"
                 strokeWidth="2"
+                className="model-node"
               />
               <g stroke="var(--color-accent)" strokeWidth="1" opacity=".55">
                 <path d="M30 74h330M30 108h330M30 142h330M30 176h330" />
@@ -139,6 +159,7 @@ export function FlagshipSection() {
                 fill="color-mix(in srgb, var(--color-accent) 14%, transparent)"
                 stroke="var(--color-accent)"
                 strokeWidth="2"
+                className="model-node"
               />
               <g stroke="var(--color-accent)" strokeWidth="1" opacity=".55">
                 <path d="M386 170h104M386 190h104" />
@@ -173,14 +194,14 @@ export function FlagshipSection() {
                 SCALED PLAN · TOTAL 8,778 m² · 1,788.8 kWp
               </text>
             </svg>
-          </div>
-          <div>
+          </Reveal>
+          <Reveal delay={120}>
             <h3
               style={{
-                fontSize: 12.5,
+                fontSize: 13,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                margin: "0 0 18px",
+                margin: "0 0 20px",
               }}
             >
               Agreement parties
@@ -188,38 +209,23 @@ export function FlagshipSection() {
             {flagshipParties.map((row, i) => (
               <div
                 key={row.label}
+                className="meta-row"
                 style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  gap: 16,
-                  padding: "14px 0",
                   borderTop:
                     i === 0 ? "2px solid var(--color-divider)" : undefined,
-                  borderBottom:
-                    i === flagshipParties.length - 1
-                      ? "2px solid var(--color-divider)"
-                      : "1px solid var(--color-divider)",
                 }}
               >
-                <span
-                  style={{
-                    fontSize: 14,
-                    color:
-                      "color-mix(in srgb, var(--color-text) 65%, transparent)",
-                  }}
-                >
+                <span className="label" style={{ fontSize: 14, letterSpacing: 0, textTransform: "none" }}>
                   {row.label}
                 </span>
-                <span style={{ fontSize: 15, textAlign: "right" }}>
-                  {row.value}
-                </span>
+                <span className="value">{row.value}</span>
               </div>
             ))}
             <p
               style={{
-                fontSize: 15,
+                fontSize: 16,
                 lineHeight: 1.65,
-                margin: "22px 0 0",
+                margin: "24px 0 0",
                 color: "color-mix(in srgb, var(--color-text) 78%, transparent)",
               }}
             >
@@ -227,7 +233,7 @@ export function FlagshipSection() {
               operate at scale for the most demanding institutional clients —
               with zero client capital.
             </p>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

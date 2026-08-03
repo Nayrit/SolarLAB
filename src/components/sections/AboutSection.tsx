@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { aboutMeta } from "@/lib/content";
+import { Reveal } from "@/components/Reveal";
 
 export function AboutSection() {
   return (
@@ -7,14 +8,14 @@ export function AboutSection() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%,320px), 1fr))",
-          gap: "clamp(32px, 5vw, 80px)",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%,340px), 1fr))",
+          gap: "clamp(40px, 6vw, 96px)",
           alignItems: "start",
         }}
       >
-        <div>
+        <Reveal>
           <span className="kicker">01 — About Solarhub</span>
-          <h2 className="display" style={{ maxWidth: "17ch" }}>
+          <h2 className="display" style={{ maxWidth: "15ch" }}>
             The energy company that carries the risk
           </h2>
           <p className="lede">
@@ -23,7 +24,7 @@ export function AboutSection() {
             fund, design, install and operate the system, and the client pays
             only for the power consumed, at a discount to the grid tariff.
           </p>
-          <p className="lede" style={{ marginBottom: 28 }}>
+          <p className="lede" style={{ marginBottom: 32 }}>
             Every plant is structured under the Renewable Energy Policy 2025 and
             the SREDA Net Metering Guideline 2025, as a tripartite agreement
             between producer, off-taker and distribution utility.
@@ -35,8 +36,8 @@ export function AboutSection() {
               </span>
             ))}
           </div>
-        </div>
-        <div>
+        </Reveal>
+        <Reveal delay={120}>
           {aboutMeta.map((row) => (
             <div key={row.label} className="meta-row">
               <span className="label">{row.label}</span>
@@ -46,8 +47,8 @@ export function AboutSection() {
           <figure
             className="grayscale"
             style={{
-              margin: "26px 0 0",
-              height: "clamp(200px, 22vw, 300px)",
+              margin: "28px 0 0",
+              height: "clamp(220px, 26vw, 360px)",
               background: "var(--color-neutral-800)",
               overflow: "hidden",
               position: "relative",
@@ -61,7 +62,7 @@ export function AboutSection() {
               style={{ objectFit: "cover" }}
             />
           </figure>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
