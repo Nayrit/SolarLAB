@@ -825,8 +825,20 @@ summary::-webkit-details-marker {
 }
 
 .contact-quick a:hover {
-  background: color-mix(in srgb, var(--color-accent) 18%, var(--color-neutral-900));
+  background: color-mix(in srgb, var(--color-accent) 22%, var(--color-neutral-900));
   color: var(--color-bg);
+}
+
+.contact-quick-cta {
+  background: var(--color-accent) !important;
+}
+
+.contact-quick-cta .q-label {
+  color: color-mix(in srgb, var(--color-bg) 80%, transparent) !important;
+}
+
+.contact-quick-cta:hover {
+  background: var(--color-accent-600) !important;
 }
 
 .contact-quick .q-label {
