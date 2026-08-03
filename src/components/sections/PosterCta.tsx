@@ -1,5 +1,4 @@
-import { MagneticButton } from "@/components/MagneticButton";
-import { Reveal } from "@/components/Reveal";
+import Link from "next/link";
 import { partnerReasons } from "@/lib/content";
 
 export function PosterCta() {
@@ -19,81 +18,77 @@ export function PosterCta() {
         className="container"
         style={{
           position: "relative",
-          paddingBlock: "clamp(72px, 10vw, 140px)",
+          paddingBlock: "clamp(52px, 7vw, 104px)",
           zIndex: 1,
         }}
       >
-        <Reveal>
-          <span
-            style={{
-              display: "block",
-              fontSize: 13,
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              marginBottom: 24,
-              color: "color-mix(in srgb, var(--color-bg) 78%, transparent)",
-            }}
-          >
-            Why partner with us
-          </span>
-          <h2
-            style={{
-              fontSize: "clamp(44px, 6.8vw, 92px)",
-              lineHeight: 0.96,
-              letterSpacing: "-0.035em",
-              margin: "0 0 28px",
-              marginLeft: "-0.04em",
-              maxWidth: "14ch",
-              color: "var(--color-bg)",
-            }}
-          >
-            <span style={{ display: "block" }}>Put your roof to work.</span>
-            <span style={{ display: "block" }}>Zero capital, zero risk.</span>
-          </h2>
-          <p
-            style={{
-              fontSize: "clamp(17px, 1.5vw, 22px)",
-              lineHeight: 1.6,
-              maxWidth: "56ch",
-              margin: "0 0 40px",
-              color: "color-mix(in srgb, var(--color-bg) 88%, transparent)",
-            }}
-          >
-            Everything you need to switch to cleaner, cheaper power — delivered
-            and operated by a single accountable partner.
-          </p>
-        </Reveal>
+        <span
+          style={{
+            display: "block",
+            fontSize: 12.5,
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            marginBottom: 24,
+            color: "color-mix(in srgb, var(--color-bg) 78%, transparent)",
+          }}
+        >
+          Why partner with us
+        </span>
+        <h2
+          style={{
+            fontSize: "clamp(36px, 5.4vw, 72px)",
+            lineHeight: 1,
+            letterSpacing: "-0.03em",
+            margin: "0 0 28px",
+            marginLeft: "-0.05em",
+            maxWidth: "16ch",
+            color: "var(--color-bg)",
+          }}
+        >
+          <span style={{ display: "block" }}>Put your roof to work.</span>
+          <span style={{ display: "block" }}>Zero capital, zero risk.</span>
+        </h2>
+        <p
+          style={{
+            fontSize: "clamp(16px, 1.4vw, 20px)",
+            lineHeight: 1.6,
+            maxWidth: "56ch",
+            margin: "0 0 34px",
+            color: "color-mix(in srgb, var(--color-bg) 90%, transparent)",
+          }}
+        >
+          Everything you need to switch to cleaner, cheaper power — delivered
+          and operated by a single accountable partner.
+        </p>
 
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
             gap: 2,
             background: "color-mix(in srgb, var(--color-bg) 35%, transparent)",
             borderTop:
               "2px solid color-mix(in srgb, var(--color-bg) 35%, transparent)",
             borderBottom:
               "2px solid color-mix(in srgb, var(--color-bg) 35%, transparent)",
-            marginBottom: 44,
+            marginBottom: 34,
           }}
         >
-          {partnerReasons.map((item, i) => (
-            <Reveal
+          {partnerReasons.map((item) => (
+            <div
               key={item.title}
-              delay={i * 40}
               style={{
-                /* Paper cards on green field — never green-on-green */
                 background: "var(--color-bg)",
                 color: "var(--color-text)",
-                padding: "24px 22px",
+                padding: "22px 20px",
               }}
             >
-              <h3 style={{ fontSize: 18, lineHeight: 1.2, margin: "0 0 8px" }}>
+              <h3 style={{ fontSize: 17, lineHeight: 1.2, margin: "0 0 6px" }}>
                 {item.title}
               </h3>
               <p
                 style={{
-                  fontSize: 14,
+                  fontSize: 13.5,
                   lineHeight: 1.5,
                   margin: 0,
                   color: "color-mix(in srgb, var(--color-text) 72%, transparent)",
@@ -101,25 +96,23 @@ export function PosterCta() {
               >
                 {item.body}
               </p>
-            </Reveal>
+            </div>
           ))}
         </div>
 
-        <Reveal delay={120}>
-          <MagneticButton
-            href="/contact"
-            className="btn"
-            style={{
-              textDecoration: "none",
-              background: "var(--color-bg)",
-              color: "var(--color-accent-800)",
-              padding: "18px 30px",
-              fontSize: 17,
-            }}
-          >
-            Start a conversation about your rooftop
-          </MagneticButton>
-        </Reveal>
+        <Link
+          href="/contact"
+          className="btn"
+          style={{
+            textDecoration: "none",
+            background: "var(--color-bg)",
+            color: "var(--color-accent-800)",
+            padding: "15px 26px",
+            fontSize: 16,
+          }}
+        >
+          Start a conversation about your rooftop
+        </Link>
       </div>
     </section>
   );

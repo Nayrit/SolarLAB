@@ -1,6 +1,5 @@
 import { pipeline, pipelineFocus } from "@/lib/content";
-import { Reveal } from "@/components/Reveal";
-import { MagneticButton } from "@/components/MagneticButton";
+import Link from "next/link";
 
 export function PipelineSection() {
   return (
@@ -8,27 +7,27 @@ export function PipelineSection() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%,320px), 1fr))",
-          gap: "clamp(40px, 6vw, 96px)",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
+          gap: "clamp(32px, 5vw, 80px)",
           alignItems: "start",
         }}
       >
-        <Reveal>
+        <div>
           <span className="kicker">Growth pipeline</span>
-          <h2 className="display" style={{ maxWidth: "12ch" }}>
+          <h2 className="display" style={{ maxWidth: "14ch" }}>
             Where we&apos;re headed
           </h2>
-          <p className="lede" style={{ maxWidth: "52ch", marginBottom: 24 }}>
+          <p className="lede" style={{ maxWidth: "52ch", marginBottom: 20 }}>
             What we pursue:
           </p>
           <ul
             style={{
               listStyle: "none",
               padding: 0,
-              margin: "0 0 32px",
+              margin: "0 0 28px",
               display: "flex",
               flexDirection: "column",
-              gap: 10,
+              gap: 8,
             }}
           >
             {pipelineFocus.map((item) => (
@@ -38,7 +37,7 @@ export function PipelineSection() {
                   display: "flex",
                   alignItems: "flex-start",
                   gap: 12,
-                  fontSize: 15.5,
+                  fontSize: 15,
                   lineHeight: 1.5,
                 }}
               >
@@ -46,7 +45,7 @@ export function PipelineSection() {
                   style={{
                     width: 8,
                     height: 8,
-                    marginTop: 7,
+                    marginTop: 6,
                     background: "var(--color-accent)",
                     flex: "none",
                   }}
@@ -55,64 +54,57 @@ export function PipelineSection() {
               </li>
             ))}
           </ul>
-          <MagneticButton
+          <Link
             href="/contact"
             className="btn btn-primary"
             style={{
               textDecoration: "none",
-              padding: "16px 28px",
-              fontSize: 16,
+              padding: "14px 24px",
+              fontSize: 15,
             }}
           >
             Discuss your site
-          </MagneticButton>
-        </Reveal>
+          </Link>
+        </div>
         <div>
           {pipeline.map((item, i) => (
-            <Reveal key={item.title} delay={i * 80}>
-              <div
-                className="pipeline-row"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  gap: 16,
-                  padding: "26px 0",
-                  borderTop:
-                    i === 0
-                      ? "2px solid var(--color-divider)"
-                      : "1px solid var(--color-divider)",
-                  borderBottom:
-                    i === pipeline.length - 1
-                      ? "2px solid var(--color-divider)"
-                      : undefined,
-                }}
-              >
-                <div>
-                  <h3
-                    style={{ fontSize: 22, lineHeight: 1.2, margin: "0 0 6px" }}
-                  >
-                    {item.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontSize: 15,
-                      margin: 0,
-                      color:
-                        "color-mix(in srgb, var(--color-text) 70%, transparent)",
-                    }}
-                  >
-                    {item.body}
-                  </p>
-                </div>
-                <span
-                  className="tag tag-outline"
-                  style={{ whiteSpace: "nowrap" }}
+            <div
+              key={item.title}
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                gap: 16,
+                padding: "22px 0",
+                borderTop:
+                  i === 0
+                    ? "2px solid var(--color-divider)"
+                    : "1px solid var(--color-divider)",
+                borderBottom:
+                  i === pipeline.length - 1
+                    ? "2px solid var(--color-divider)"
+                    : undefined,
+              }}
+            >
+              <div>
+                <h3 style={{ fontSize: 20, lineHeight: 1.2, margin: "0 0 4px" }}>
+                  {item.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: 14,
+                    margin: 0,
+                    color:
+                      "color-mix(in srgb, var(--color-text) 70%, transparent)",
+                  }}
                 >
-                  {item.status}
-                </span>
+                  {item.body}
+                </p>
               </div>
-            </Reveal>
+              <span className="tag tag-outline" style={{ whiteSpace: "nowrap" }}>
+                {item.status}
+              </span>
+            </div>
           ))}
         </div>
       </div>

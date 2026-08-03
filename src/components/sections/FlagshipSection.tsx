@@ -1,6 +1,5 @@
 import { flagshipParties, flagshipSheds, flagshipStats } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
-import { CountUp } from "@/components/CountUp";
 
 export function FlagshipSection() {
   return (
@@ -13,29 +12,29 @@ export function FlagshipSection() {
               flexWrap: "wrap",
               alignItems: "center",
               gap: 14,
-              marginBottom: 28,
+              marginBottom: 24,
             }}
           >
             <span className="kicker" style={{ margin: 0 }}>
               04 — Flagship project
             </span>
             <span
-              className="tag anim-blink"
+              className="tag"
               style={{
                 background: "var(--color-accent)",
                 color: "var(--color-bg)",
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                fontSize: 11,
+                fontSize: 10.5,
               }}
             >
               Signed · in construction
             </span>
           </div>
-          <h2 className="display" style={{ maxWidth: "18ch" }}>
+          <h2 className="display" style={{ maxWidth: "20ch" }}>
             Khulna Shipyard Limited
           </h2>
-          <p className="lede" style={{ maxWidth: "64ch", marginBottom: 52 }}>
+          <p className="lede" style={{ maxWidth: "64ch", marginBottom: 44 }}>
             A 22-year tripartite Power Purchase Agreement with Khulna Shipyard
             Ltd., a Bangladesh Navy installation, and West Zone Power
             Distribution Company Ltd. — rooftop solar under the OPEX model,
@@ -47,37 +46,22 @@ export function FlagshipSection() {
           className="grid-divider"
           style={{
             gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-            marginBottom: 52,
+            marginBottom: 44,
           }}
         >
-          {flagshipStats.map((stat, i) => (
+          {flagshipStats.map((stat) => (
             <Reveal
               key={stat.label}
-              delay={i * 70}
               style={{
                 background: "var(--color-surface)",
-                padding: "28px 22px",
+                padding: "24px 20px",
               }}
             >
               <p
                 className="stat-value"
-                style={{ fontSize: "clamp(32px, 3.4vw, 48px)", marginBottom: 8 }}
+                style={{ fontSize: "clamp(28px, 3vw, 42px)", marginBottom: 8 }}
               >
-                {stat.value.includes("MWp") ? (
-                  <>
-                    <CountUp end={1.788} decimals={3} /> MWp
-                  </>
-                ) : stat.value.includes("yrs") ? (
-                  <>
-                    <CountUp end={22} /> yrs
-                  </>
-                ) : stat.value.includes("%") ? (
-                  <>
-                    <CountUp end={18} /> %
-                  </>
-                ) : (
-                  stat.value
-                )}
+                {stat.value}
               </p>
               <p className="stat-label" style={{ fontSize: 11 }}>
                 {stat.label}

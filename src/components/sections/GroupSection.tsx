@@ -1,6 +1,5 @@
 import { groupStats, sisterCompanies } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
-import { CountUp } from "@/components/CountUp";
 
 export function GroupSection() {
   return (
@@ -8,10 +7,10 @@ export function GroupSection() {
       <div className="container section">
         <Reveal>
           <span className="kicker">07 — Group &amp; affiliations</span>
-          <h2 className="display" style={{ maxWidth: "16ch" }}>
+          <h2 className="display" style={{ maxWidth: "18ch" }}>
             Part of a proven industrial group
           </h2>
-          <p className="lede" style={{ maxWidth: "64ch", marginBottom: 52 }}>
+          <p className="lede" style={{ maxWidth: "64ch", marginBottom: 44 }}>
             Solarhub is the renewable-energy arm of a group spanning garments,
             paper, roofing, real estate and chemicals — financial strength,
             procurement scale and operational discipline from day one.
@@ -22,27 +21,19 @@ export function GroupSection() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
-            gap: "clamp(24px, 3vw, 48px)",
-            paddingBottom: "clamp(36px, 5vw, 56px)",
+            gap: "clamp(20px, 3vw, 40px)",
+            paddingBottom: "clamp(32px, 4vw, 48px)",
             borderBottom: "2px solid var(--color-divider)",
-            marginBottom: "clamp(36px, 5vw, 56px)",
+            marginBottom: "clamp(32px, 4vw, 48px)",
           }}
         >
-          {groupStats.map((stat, i) => (
-            <Reveal key={stat.label} delay={i * 70}>
+          {groupStats.map((stat) => (
+            <Reveal key={stat.label}>
               <p
                 className="stat-value"
-                style={{ fontSize: "clamp(32px, 3.4vw, 52px)", marginBottom: 8 }}
+                style={{ fontSize: "clamp(28px, 3vw, 42px)", marginBottom: 8 }}
               >
-                {stat.value === "5" ? (
-                  <CountUp end={5} />
-                ) : stat.value === "20+ yrs" ? (
-                  <>
-                    <CountUp end={20} />+ yrs
-                  </>
-                ) : (
-                  stat.value
-                )}
+                {stat.value}
               </p>
               <p className="stat-label" style={{ fontSize: 11 }}>
                 {stat.label}
