@@ -223,6 +223,12 @@ summary::-webkit-details-marker {
 }
 
 .reveal {
+  /* SSR / no-JS: content is visible. JS arms the effect, then reveals on scroll. */
+  opacity: 1;
+  transform: none;
+}
+
+.reveal.is-armed:not(.is-visible) {
   opacity: 0;
   transform: translateY(22px);
   transition:
@@ -233,6 +239,9 @@ summary::-webkit-details-marker {
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {

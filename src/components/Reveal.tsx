@@ -24,11 +24,24 @@ export function Reveal({
   as: Tag = "div",
 }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
-  const [visible, setVisible] = useState(false);
+  // Start visible for SSR / no-JS; only hide once the observer is armed.
+  const [visible, setVisible] = useState(true);
+  const [armed, setArmed] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      setVisible(true);
+      setArmed(true);
+      return;
+    }
+
+    setVisible(false);
+    setArmed(true);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -45,7 +58,7 @@ export function Reveal({
   return (
     <Tag
       ref={ref as never}
-      className={`reveal${visible ? " is-visible" : ""}${className ? ` ${className}` : ""}`}
+      className={`reveal${visible ? " is-visible" : ""}${armed ? " is-armed" : ""}${className ? ` ${className}` : ""}`}
       style={{ ...style, transitionDelay: `${delay}ms` }}
     >
       {children}
