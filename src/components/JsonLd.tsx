@@ -4,7 +4,11 @@ type JsonLdProps = {
   data: Record<string, unknown> | Record<string, unknown>[];
 };
 
-/** Server-rendered JSON-LD with CSP nonce from proxy. */
+/**
+ * Server-rendered JSON-LD with CSP nonce from proxy.
+ * Browsers strip `nonce` from the live DOM after applying CSP, which would
+ * otherwise look like a hydration mismatch — suppress that false positive.
+ */
 export async function JsonLd({ data }: JsonLdProps) {
   const nonce = (await headers()).get("x-nonce") ?? undefined;
   const payload = Array.isArray(data) ? data : [data];
@@ -17,6 +21,7 @@ export async function JsonLd({ data }: JsonLdProps) {
           key={i}
           type="application/ld+json"
           nonce={nonce}
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(item).replace(/</g, "\\u003c"),
           }}
