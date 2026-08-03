@@ -11,10 +11,20 @@ import { PipelineSection } from "@/components/sections/PipelineSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { PosterCta } from "@/components/sections/PosterCta";
+import { JsonLd } from "@/components/JsonLd";
+import {
+  SEO_PAGES,
+  buildMetadata,
+  faqJsonLd,
+  webPageJsonLd,
+} from "@/lib/seo";
+
+export const metadata = buildMetadata(SEO_PAGES.home);
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={[webPageJsonLd(SEO_PAGES.home), faqJsonLd()]} />
       <HeroSection />
       <StatsStrip />
       <AboutSection />

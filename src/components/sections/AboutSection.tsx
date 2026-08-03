@@ -71,7 +71,7 @@ export function AboutSection() {
           >
             <Image
               src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1600&q=80"
-              alt="Rooftop photovoltaic array"
+              alt="Industrial rooftop solar photovoltaic array generating clean power for a factory in Bangladesh"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               style={{ objectFit: "cover" }}
