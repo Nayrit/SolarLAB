@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
-import { navLinks } from "@/lib/content";
+import { navCta, navLinks } from "@/lib/content";
 
 export function Header() {
   const pathname = usePathname();
@@ -48,11 +48,12 @@ export function Header() {
             </Link>
           ))}
           <Link
-            href="/contact"
+            href={navCta.href}
             className="btn btn-primary"
+            aria-current={pathname === navCta.href ? "page" : undefined}
             style={{ textDecoration: "none" }}
           >
-            Assess my roof
+            {navCta.label}
           </Link>
         </div>
       </nav>

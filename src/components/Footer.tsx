@@ -1,12 +1,22 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Logo } from "./Logo";
-import { company } from "@/lib/content";
+import { company, footerNav, navCta } from "@/lib/content";
+
+const linkStyle = {
+  color: "var(--color-bg)",
+  textDecoration: "none",
+} as const;
 
 export function Footer() {
   return (
-    <footer style={{ background: "var(--color-neutral-900)", color: "var(--color-bg)" }}>
-      <div className="container" style={{ paddingBlock: "clamp(40px, 5vw, 72px)" }}>
+    <footer
+      style={{ background: "var(--color-neutral-900)", color: "var(--color-bg)" }}
+    >
+      <div
+        className="container"
+        style={{ paddingBlock: "clamp(40px, 5vw, 72px)" }}
+      >
         <div
           style={{
             display: "grid",
@@ -25,13 +35,16 @@ export function Footer() {
               style={{
                 fontSize: 13.5,
                 lineHeight: 1.6,
-                margin: 0,
+                margin: "0 0 16px",
                 color: "color-mix(in srgb, var(--color-bg) 65%, transparent)",
               }}
             >
               Rooftop solar under the zero-capital OPEX model, for industry and
               institutions across Bangladesh.
             </p>
+            <Link href={navCta.href} className="btn btn-primary" style={linkStyle}>
+              {navCta.label}
+            </Link>
           </div>
 
           <div>
@@ -44,7 +57,7 @@ export function Footer() {
                 color: "color-mix(in srgb, var(--color-bg) 55%, transparent)",
               }}
             >
-              Company
+              Explore
             </p>
             <div
               style={{
@@ -54,18 +67,11 @@ export function Footer() {
                 fontSize: 14,
               }}
             >
-              <Link href="/about" style={{ color: "var(--color-bg)", textDecoration: "none" }}>
-                About
-              </Link>
-              <Link href="/leadership" style={{ color: "var(--color-bg)", textDecoration: "none" }}>
-                Leadership
-              </Link>
-              <Link href="/model" style={{ color: "var(--color-bg)", textDecoration: "none" }}>
-                Business model
-              </Link>
-              <Link href="/group" style={{ color: "var(--color-bg)", textDecoration: "none" }}>
-                Group &amp; affiliations
-              </Link>
+              {footerNav.explore.map((link) => (
+                <Link key={link.href} href={link.href} style={linkStyle}>
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -79,7 +85,7 @@ export function Footer() {
                 color: "color-mix(in srgb, var(--color-bg) 55%, transparent)",
               }}
             >
-              Services
+              More
             </p>
             <div
               style={{
@@ -89,18 +95,11 @@ export function Footer() {
                 fontSize: 14,
               }}
             >
-              <Link href="/services" style={{ color: "var(--color-bg)", textDecoration: "none" }}>
-                EPC &amp; OPEX solar
-              </Link>
-              <Link href="/technology" style={{ color: "var(--color-bg)", textDecoration: "none" }}>
-                Technology
-              </Link>
-              <Link href="/services" style={{ color: "var(--color-bg)", textDecoration: "none" }}>
-                O&amp;M
-              </Link>
-              <Link href="/flagship" style={{ color: "var(--color-bg)", textDecoration: "none" }}>
-                Flagship project
-              </Link>
+              {footerNav.more.map((link) => (
+                <Link key={link.href} href={link.href} style={linkStyle}>
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -124,16 +123,10 @@ export function Footer() {
                 fontSize: 14,
               }}
             >
-              <a
-                href={`mailto:${company.email}`}
-                style={{ color: "var(--color-bg)", textDecoration: "none" }}
-              >
+              <a href={`mailto:${company.email}`} style={linkStyle}>
                 {company.email}
               </a>
-              <a
-                href={company.phones[0].href}
-                style={{ color: "var(--color-bg)", textDecoration: "none" }}
-              >
+              <a href={company.phones[0].href} style={linkStyle}>
                 {company.phones[0].label}
               </a>
               <span
@@ -226,7 +219,13 @@ function SocialLink({
         color: "var(--color-bg)",
       }}
     >
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <svg
+        width="15"
+        height="15"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
         {children}
       </svg>
     </Link>

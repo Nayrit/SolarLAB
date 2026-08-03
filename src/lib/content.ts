@@ -22,8 +22,29 @@ export const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/flagship", label: "Flagship" },
   { href: "/group", label: "Group" },
-  { href: "/contact", label: "Contact" },
+  { href: "/faq", label: "FAQ" },
 ] as const;
+
+/** Primary CTA — the only header path to contact */
+export const navCta = {
+  href: "/contact",
+  label: "Assess my roof",
+} as const;
+
+export const footerNav = {
+  explore: [
+    { href: "/about", label: "About" },
+    { href: "/model", label: "Model" },
+    { href: "/services", label: "Services" },
+    { href: "/flagship", label: "Flagship" },
+    { href: "/group", label: "Group" },
+    { href: "/faq", label: "FAQ" },
+  ],
+  more: [
+    { href: "/leadership", label: "Leadership" },
+    { href: "/technology", label: "Technology" },
+  ],
+} as const;
 
 export const heroStats = [
   { value: "1.788", unit: " MWp", label: "Flagship in construction" },
