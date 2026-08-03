@@ -1,5 +1,4 @@
 /* Modernist — design-system tokens and component classes. This file is the source of truth for the system's look; retune it here and see readme.md. */
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap');
 
 :root {
   /* Clean paper ground — green only as the accent, not washed into everything */
@@ -46,9 +45,9 @@
   --color-accent-2-800: #064d30;
   --color-accent-2-900: #043422;
 
-  --font-heading: "Archivo", system-ui, sans-serif;
+  --font-heading: var(--font-archivo), "Archivo", system-ui, sans-serif;
   --font-heading-weight: 800;
-  --font-body: "Archivo", system-ui, sans-serif;
+  --font-body: var(--font-archivo), "Archivo", system-ui, sans-serif;
 
   --space-1: 4.0px;
   --space-2: 8.0px;

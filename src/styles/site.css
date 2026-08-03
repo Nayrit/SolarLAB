@@ -1,5 +1,19 @@
-html {
-  scroll-behavior: smooth;
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -48px;
+  z-index: 200;
+  padding: 10px 14px;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.skip-link:focus {
+  top: 12px;
 }
 
 body {

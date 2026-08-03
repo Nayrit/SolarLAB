@@ -9,6 +9,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { safeInternalHref } from "@/lib/validation";
 
 type MagneticButtonProps = {
   children: ReactNode;
@@ -47,11 +48,13 @@ export function MagneticButton({
     transform: `translate3d(${offset.x}px, ${offset.y}px, 0)`,
   };
 
-  if (href) {
+  const safeHref = href ? safeInternalHref(href) : null;
+
+  if (safeHref) {
     return (
       <Link
         ref={ref as never}
-        href={href}
+        href={safeHref}
         className={`magnetic ${className}`}
         onMouseMove={onMove}
         onMouseLeave={onLeave}

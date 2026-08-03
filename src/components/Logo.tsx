@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { safeInternalHref } from "@/lib/validation";
 
 type LogoProps = {
   href?: string;
@@ -14,10 +15,11 @@ export function Logo({
   size = 26,
 }: LogoProps) {
   const stroke = light ? "var(--color-neutral-900)" : "var(--color-bg)";
+  const safeHref = safeInternalHref(href) ?? "/";
 
   return (
     <Link
-      href={href}
+      href={safeHref}
       className="nav-brand"
       style={{
         display: "flex",

@@ -2,24 +2,93 @@
 
 import { FormEvent, useState } from "react";
 import { MagneticButton } from "@/components/MagneticButton";
+import { ALLOWED_MODELS, CONTACT_LIMITS } from "@/lib/validation";
+
+type Model = "opex" | "capex" | "unsure";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
-  const [model, setModel] = useState("opex");
+  const [model, setModel] = useState<Model>("opex");
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setError(null);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    // Honeypot — leave empty; bots often fill every field.
+    if (String(data.get("website") ?? "").trim()) {
+      setSent(true);
+      return;
+    }
+
+    const name = String(data.get("name") ?? "").trim().slice(0, CONTACT_LIMITS.name);
+    const email = String(data.get("email") ?? "")
+      .trim()
+      .toLowerCase()
+      .slice(0, CONTACT_LIMITS.email);
+    const org = String(data.get("org") ?? "").trim().slice(0, CONTACT_LIMITS.org);
+    const message = String(data.get("message") ?? "")
+      .trim()
+      .slice(0, CONTACT_LIMITS.message);
+
+    if (name.length < 2) {
+      setError("Please enter your name.");
+      return;
+    }
+    if (!email.includes("@") || email.length < 5) {
+      setError("Please enter a valid work email.");
+      return;
+    }
+    if (!ALLOWED_MODELS.has(model)) {
+      setError("Please choose a preferred model.");
+      return;
+    }
+
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 500));
-    setSubmitting(false);
-    setSent(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ name, email, org, message, model, website: "" }),
+        credentials: "same-origin",
+      });
+
+      const payload = (await res.json().catch(() => null)) as {
+        ok?: boolean;
+        error?: string;
+      } | null;
+
+      if (!res.ok || !payload?.ok) {
+        if (res.status === 429) {
+          setError("Too many requests. Please wait a few minutes and try again.");
+        } else {
+          setError(payload?.error ?? "Something went wrong. Please try again.");
+        }
+        return;
+      }
+
+      setSent(true);
+      form.reset();
+      setModel("opex");
+    } catch {
+      setError("Network error. Check your connection and try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (sent) {
     return (
       <div
         className="anim-rise"
+        role="status"
         style={{
           display: "flex",
           flexDirection: "column",
@@ -60,7 +129,10 @@ export function ContactForm() {
             color: "var(--color-bg)",
             borderColor: "color-mix(in srgb, var(--color-bg) 45%, transparent)",
           }}
-          onClick={() => setSent(false)}
+          onClick={() => {
+            setSent(false);
+            setError(null);
+          }}
         >
           Send another message
         </button>
@@ -77,11 +149,35 @@ export function ContactForm() {
   return (
     <form
       onSubmit={onSubmit}
+      noValidate
       style={{ display: "flex", flexDirection: "column", gap: 16 }}
+      autoComplete="on"
     >
       <h3 style={{ fontSize: 22, lineHeight: 1.2, margin: "0 0 4px" }}>
         Request a rooftop assessment
       </h3>
+
+      {/* Honeypot — visually hidden, not display:none so some bots still fill it */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "-10000px",
+          top: "auto",
+          width: 1,
+          height: 1,
+          overflow: "hidden",
+        }}
+      >
+        <label htmlFor="sh-website">Website</label>
+        <input
+          id="sh-website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
 
       <div className="field">
         <label
@@ -96,6 +192,8 @@ export function ContactForm() {
           name="name"
           type="text"
           required
+          maxLength={CONTACT_LIMITS.name}
+          autoComplete="name"
           placeholder="Your name"
           style={inputStyle}
         />
@@ -114,6 +212,9 @@ export function ContactForm() {
           name="email"
           type="email"
           required
+          maxLength={CONTACT_LIMITS.email}
+          autoComplete="email"
+          inputMode="email"
           placeholder="name@company.com"
           style={inputStyle}
         />
@@ -131,6 +232,8 @@ export function ContactForm() {
           id="sh-org"
           name="org"
           type="text"
+          maxLength={CONTACT_LIMITS.org}
+          autoComplete="organization"
           placeholder="Company, district"
           style={inputStyle}
         />
@@ -144,6 +247,8 @@ export function ContactForm() {
         </label>
         <div
           className="seg"
+          role="radiogroup"
+          aria-label="Preferred model"
           style={{
             borderColor: "color-mix(in srgb, var(--color-bg) 30%, transparent)",
           }}
@@ -181,10 +286,24 @@ export function ContactForm() {
           id="sh-msg"
           name="message"
           rows={4}
+          maxLength={CONTACT_LIMITS.message}
           placeholder="e.g. 6,000 m² shed roof in Gazipur, ~BDT 18 lakh/month"
           style={inputStyle}
         />
       </div>
+
+      {error ? (
+        <p
+          role="alert"
+          style={{
+            margin: 0,
+            fontSize: 13.5,
+            color: "#ffb4a8",
+          }}
+        >
+          {error}
+        </p>
+      ) : null}
 
       <MagneticButton
         type="submit"
@@ -194,6 +313,7 @@ export function ContactForm() {
           padding: "14px 22px",
           fontSize: 15,
           opacity: submitting ? 0.75 : 1,
+          pointerEvents: submitting ? "none" : undefined,
         }}
       >
         {submitting ? "Sending…" : "Request assessment"}
@@ -206,7 +326,8 @@ export function ContactForm() {
           color: "color-mix(in srgb, var(--color-bg) 55%, transparent)",
         }}
       >
-        Demo form — submissions stay in this browser session.
+        Protected submission — rate-limited, validated server-side. No payment
+        data is collected.
       </p>
     </form>
   );
