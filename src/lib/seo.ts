@@ -221,6 +221,34 @@ export const SEO_PAGES: Record<string, SeoPage> = {
     changeFrequency: "monthly",
     priority: 0.75,
   },
+  privacy: {
+    path: "/privacy",
+    title: "Privacy Policy",
+    absoluteTitle: "Privacy Policy | Solarhub Technology Ltd.",
+    description:
+      "How Solarhub Technology Ltd. collects and uses personal information from website visitors and contact form enquiries in Bangladesh.",
+    keywords: [
+      "Solarhub privacy policy",
+      "website data protection Bangladesh",
+      "cookie policy Solarhub",
+    ],
+    changeFrequency: "yearly",
+    priority: 0.3,
+  },
+  terms: {
+    path: "/terms",
+    title: "Terms of Use",
+    absoluteTitle: "Terms of Use | Solarhub Technology Ltd.",
+    description:
+      "Terms for using the Solarhub Technology Ltd. website. Content is informational; OPEX and PPA commitments require signed agreements.",
+    keywords: [
+      "Solarhub terms of use",
+      "website terms Bangladesh",
+      "OPEX solar disclaimer",
+    ],
+    changeFrequency: "yearly",
+    priority: 0.3,
+  },
 };
 
 export function absoluteUrl(path = "/"): string {

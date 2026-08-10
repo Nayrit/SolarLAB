@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { services } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
 
@@ -89,17 +88,6 @@ export function ServicesSection() {
               >
                 {service.tags}
               </p>
-              <Link
-                href="/contact"
-                className="btn btn-ghost"
-                style={{
-                  alignSelf: "flex-start",
-                  paddingLeft: 0,
-                  textDecoration: "none",
-                }}
-              >
-                Learn more →
-              </Link>
             </div>
           </Reveal>
         ))}

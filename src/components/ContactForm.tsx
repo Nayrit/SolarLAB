@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { MagneticButton } from "@/components/MagneticButton";
 import { ALLOWED_MODELS, CONTACT_LIMITS } from "@/lib/validation";
@@ -326,8 +327,15 @@ export function ContactForm() {
           color: "color-mix(in srgb, var(--color-bg) 55%, transparent)",
         }}
       >
-        Protected submission — rate-limited, validated server-side. No payment
-        data is collected.
+        Protected submission — rate-limited, validated server-side. We use your
+        details only to respond to this enquiry. See our{" "}
+        <Link
+          href="/privacy"
+          style={{ color: "var(--color-accent-400)", textDecoration: "underline" }}
+        >
+          Privacy Policy
+        </Link>
+        .
       </p>
     </form>
   );

@@ -1,9 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import { Logo } from "./Logo";
 import { company, footerNav, navCta } from "@/lib/content";
+import { openCookieSettings } from "@/lib/cookies";
 
 const linkStyle = {
   color: "var(--color-bg)",
+  textDecoration: "none",
+} as const;
+
+const mutedLinkStyle = {
+  color: "color-mix(in srgb, var(--color-bg) 70%, transparent)",
   textDecoration: "none",
 } as const;
 
@@ -99,6 +107,12 @@ export function Footer() {
                   {link.label}
                 </Link>
               ))}
+              <Link href="/privacy" style={linkStyle}>
+                Privacy Policy
+              </Link>
+              <Link href="/terms" style={linkStyle}>
+                Terms of Use
+              </Link>
             </div>
           </div>
 
@@ -214,6 +228,7 @@ export function Footer() {
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "space-between",
+            alignItems: "center",
             gap: 12,
             paddingTop: 22,
             fontSize: 12,
@@ -224,10 +239,39 @@ export function Footer() {
             © 2026 Solarhub Technology Ltd. · {company.legalStatus} · Reg. No.{" "}
             {company.regNo}
           </span>
-          <span>
-            Trade licence {company.tradeLicense} · Incorporated{" "}
-            {company.registered}
-          </span>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "8px 16px",
+              alignItems: "center",
+            }}
+          >
+            <Link href="/privacy" style={mutedLinkStyle}>
+              Privacy
+            </Link>
+            <Link href="/terms" style={mutedLinkStyle}>
+              Terms
+            </Link>
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              style={{
+                ...mutedLinkStyle,
+                background: "none",
+                border: 0,
+                padding: 0,
+                cursor: "pointer",
+                font: "inherit",
+              }}
+            >
+              Cookie settings
+            </button>
+            <span>
+              Trade licence {company.tradeLicense} · Incorporated{" "}
+              {company.registered}
+            </span>
+          </div>
         </div>
       </div>
     </footer>

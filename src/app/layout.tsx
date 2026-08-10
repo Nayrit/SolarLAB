@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { CookieConsent } from "@/components/CookieConsent";
 import { JsonLd } from "@/components/JsonLd";
 import {
   SITE,
@@ -88,6 +89,7 @@ export default async function RootLayout({
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );
