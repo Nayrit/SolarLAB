@@ -15,8 +15,7 @@ export const SITE = {
   locale: "en_BD",
   language: "en",
   email: company.email,
-  phone: "+8801819251577",
-  phoneAlt: "+8801540731004",
+  phone: "+8801540731004",
   address: {
     street: "Sena Kalayan Trade Center (SKTC), Level 4, 29 Agrabad C/A",
     locality: "Chattogram",
@@ -24,6 +23,20 @@ export const SITE = {
     postalCode: "4100",
     country: "BD",
   },
+  additionalAddresses: [
+    {
+      street: "House No. 13/B, Road No. 99, Gulshan-2",
+      locality: "Dhaka",
+      postalCode: "1212",
+      country: "BD",
+    },
+    {
+      street: "62/221, Box Culvert Road, Purana Paltan (16th Floor)",
+      locality: "Dhaka",
+      postalCode: "1000",
+      country: "BD",
+    },
+  ],
   geo: {
     // Agrabad, Chattogram approximate
     latitude: 22.3239,
@@ -179,13 +192,13 @@ export const SEO_PAGES: Record<string, SeoPage> = {
   leadership: {
     path: "/leadership",
     title: "Leadership",
-    absoluteTitle: "Solarhub Board & Leadership | Kabir, Amin, Hasan, Huq",
+    absoluteTitle: "Solarhub Board & Leadership | Kabir, Hasan, Huq, Amin",
     description:
-      "Leadership of Solarhub Technology Ltd.: Dewan Ali Kabir, Md. Sazzad Amin, Muhammad Abu Hasan and Mohammad Nasimul Huq.",
+      "Board of Solarhub Technology Ltd.: Chairman Dewan Ali Kabir, Managing Director Muhammad Abu Hasan, and Directors Mohammad Nasimul Huq and Md. Sazzad Amin.",
     keywords: [
       "Solarhub leadership",
       "Dewan Ali Kabir",
-      "Md. Sazzad Amin",
+      "Muhammad Abu Hasan",
       "solar company board Bangladesh",
     ],
     changeFrequency: "monthly",
@@ -275,7 +288,7 @@ export function organizationJsonLd() {
     image: absoluteUrl("/opengraph-image"),
     description: SITE.description,
     email: SITE.email,
-    telephone: [SITE.phone, SITE.phoneAlt],
+    telephone: SITE.phone,
     foundingDate: "2026-05-11",
     address: {
       "@type": "PostalAddress",
@@ -285,6 +298,23 @@ export function organizationJsonLd() {
       postalCode: SITE.address.postalCode,
       addressCountry: SITE.address.country,
     },
+    location: [
+      {
+        "@type": "PostalAddress",
+        streetAddress: SITE.address.street,
+        addressLocality: SITE.address.locality,
+        addressRegion: SITE.address.region,
+        postalCode: SITE.address.postalCode,
+        addressCountry: SITE.address.country,
+      },
+      ...SITE.additionalAddresses.map((addr) => ({
+        "@type": "PostalAddress",
+        streetAddress: addr.street,
+        addressLocality: addr.locality,
+        postalCode: addr.postalCode,
+        addressCountry: addr.country,
+      })),
+    ],
     geo: {
       "@type": "GeoCoordinates",
       latitude: SITE.geo.latitude,
@@ -311,7 +341,6 @@ export function organizationJsonLd() {
         email: SITE.email,
       },
     ],
-    sameAs: SITE.sameAs,
   };
 }
 

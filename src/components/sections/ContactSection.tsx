@@ -10,6 +10,7 @@ type ContactSectionProps = {
 
 export function ContactSection({ asPage = false }: ContactSectionProps) {
   const Title = asPage ? "h1" : "h2";
+  const phone = company.phones[0];
 
   return (
     <section id="contact" className="contact-page">
@@ -51,8 +52,20 @@ export function ContactSection({ asPage = false }: ContactSectionProps) {
             </span>
           </div>
           <div className="meta-row">
-            <span className="label">Director</span>
-            <span className="value">{company.director}</span>
+            <span className="label">Corporate office</span>
+            <span className="value" style={{ maxWidth: "28ch" }}>
+              {company.corporateOfficeShort}
+            </span>
+          </div>
+          <div className="meta-row">
+            <span className="label">Business address</span>
+            <span className="value" style={{ maxWidth: "28ch" }}>
+              {company.businessAddressShort}
+            </span>
+          </div>
+          <div className="meta-row">
+            <span className="label">Managing Director</span>
+            <span className="value">{company.managingDirector}</span>
           </div>
           <div className="meta-row">
             <span className="label">Email</span>
@@ -68,21 +81,21 @@ export function ContactSection({ asPage = false }: ContactSectionProps) {
           </div>
 
           <div className="contact-quick">
-            <a href={company.phones[0].href}>
-              <span className="q-label">Phone</span>
-              <span className="q-value">{company.phones[0].label}</span>
-            </a>
-            <a href={company.phones[1].href}>
-              <span className="q-label">Head office</span>
-              <span className="q-value">+88 01540-731004</span>
+            <a href={phone.href}>
+              <span className="q-label">Official phone</span>
+              <span className="q-value">{phone.label}</span>
             </a>
             <a href={`mailto:${company.email}`}>
               <span className="q-label">Email</span>
               <span className="q-value">Write to us</span>
             </a>
-            <a href={company.phones[0].href} className="contact-quick-cta">
+            <a href={phone.href} className="contact-quick-cta">
               <span className="q-label">Call now</span>
-              <span className="q-value">{company.phones[0].label}</span>
+              <span className="q-value">{phone.label}</span>
+            </a>
+            <a href="/about">
+              <span className="q-label">Company profile</span>
+              <span className="q-value">Offices &amp; registration</span>
             </a>
           </div>
         </div>

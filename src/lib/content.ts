@@ -1,15 +1,23 @@
 export const company = {
   name: "Solarhub Technology Ltd.",
   shortName: "SOLARHUB",
-  regNo: "CH-16658",
+  regNo: "CH-16658/2026",
   registered: "11 May 2026",
+  legalStatus: "Private Limited Company under the Companies Act 1994",
+  tradeLicense: "TRAD/DSCC/002274/2026",
+  tradeLicenseAuthority: "Dhaka South City Corporation",
   office:
     "Sena Kalayan Trade Center (SKTC), Level 4, 29 Agrabad C/A, Agrabad, Chattogram 4100, Bangladesh",
   officeShort: "SKTC, Level 4, 29 Agrabad C/A, Chattogram 4100",
-  director: "Md. Sazzad Amin",
+  corporateOffice:
+    "House No. 13/B, Road No. 99, Gulshan-2, Dhaka, Bangladesh",
+  corporateOfficeShort: "House 13/B, Road 99, Gulshan-2, Dhaka",
+  businessAddress:
+    "62/221, Box Culvert Road, Purana Paltan (16th Floor), Dhaka 1000",
+  businessAddressShort: "Purana Paltan (16th Floor), Dhaka 1000",
+  managingDirector: "Muhammad Abu Hasan",
   phones: [
-    { label: "+88 01819-251577", href: "tel:+8801819251577" },
-    { label: "Head office · +88 01540-731004", href: "tel:+8801540731004" },
+    { label: "+88 01540-731004", href: "tel:+8801540731004" },
   ],
   email: "solarhubtechnology@gmail.com",
   opexLine:
@@ -55,11 +63,24 @@ export const heroStats = [
 
 export const aboutMeta = [
   { label: "Registered name", value: "Solarhub Technology Ltd." },
-  { label: "Registration no.", value: "CH-16658" },
-  { label: "Registered", value: "11 May 2026" },
+  { label: "Registration no.", value: "CH-16658/2026" },
+  { label: "Incorporated", value: "11 May 2026 · RJSC" },
+  { label: "Legal status", value: "Private Limited · Companies Act 1994" },
   {
     label: "Registered office",
     value: "SKTC, Level 4, 29 Agrabad C/A, Chattogram 4100",
+  },
+  {
+    label: "Corporate office",
+    value: "House 13/B, Road 99, Gulshan-2, Dhaka",
+  },
+  {
+    label: "Business address",
+    value: "62/221 Box Culvert Road, Purana Paltan (16F), Dhaka 1000",
+  },
+  {
+    label: "Trade license",
+    value: "TRAD/DSCC/002274/2026 · DSCC",
   },
   { label: "Business model", value: "OPEX rooftop solar" },
   { label: "Framework", value: "RE Policy 2025 · SREDA 2025" },
@@ -104,25 +125,25 @@ export const leadership = [
     role: "Chairman",
     name: "Dewan Ali Kabir",
     highlight: "Managing Director, Master Simex Paper Limited",
-    body: "Managing Director of Master Simex Paper Limited, an ISO 9001:2015-certified specialty paper manufacturer and part of Emerging Group Bangladesh, established in 2002. Under his leadership Master Simex has grown into one of the country's leading paper converting and printing businesses: three production facilities (Narsingdi, Narayanganj, Gazipur), over 600 people, annual throughput exceeding 25,000 MT, and a supply chain spanning 100+ partners across 20 countries. His experience in large-scale, security-sensitive document manufacturing — including national examination OMR sheets and bank SWIFT papers, with a 95% client-retention rate — strengthens the company's financial capacity and credibility for government and defence-related procurement.",
-  },
-  {
-    role: "Director",
-    name: "Md. Sazzad Amin",
-    highlight: "Founder & Group Chairman, Peak Apparels Ltd.",
-    body: "Retired Marine Engineer and Founder & Group Chairman of Peak Apparels Ltd. and its sister concerns, including Peak Trading. Over 35 years of versatile business experience across garments manufacturing, IT infrastructure and software development (in Bangladesh and abroad), real estate development in Canada and Bangladesh, procurement and supply, chemical production for the garments industry, and housing materials. Founder and lead management figure behind BABL, Peak Polymer Ltd., Tripax and other Group companies, which have partnered with internationally renowned brands in apparel, with Huawei in IT, and with Polytech in building construction materials.",
+    body: "Chairman of Solarhub Technology Ltd. and Managing Director of Master Simex Paper Limited, an ISO 9001:2015-certified specialty paper manufacturer within Emerging Group Bangladesh. Over 25 years of business leadership, with a degree in Finance from the University of Dhaka. Under his stewardship Master Simex has grown into one of the country's leading paper converting and printing businesses — multiple production facilities, a large industrial workforce, and supply relationships spanning government and banking clients. That industrial and financial depth underpins Solarhub's capacity to fund and deliver long-term OPEX rooftop plants.",
   },
   {
     role: "Managing Director",
     name: "Muhammad Abu Hasan",
     highlight: "Chief Engineer (Marine) · 30+ years",
-    body: "Mr. Hasan is a Chief Engineer with more than 30 years of experience in the marine industry and is actively involved in marine-related business and technical operations.",
+    body: "Managing Director of Solarhub Technology Ltd. A Chief Engineer with more than 30 years of experience in the marine industry, actively involved in marine-related business and technical operations. His engineering discipline and operational leadership guide Solarhub's project delivery, safety standards and long-term plant performance.",
   },
   {
-    role: "Director · CEO",
+    role: "Director",
     name: "Mohammad Nasimul Huq",
-    highlight: "Chief Executive Officer · Khulna Shipyard signatory",
-    body: "Mr. Nasimul is a Chief Engineer (Marine) and a graduate of Bangladesh Marine Academy, Juldia, Chittagong. He is currently serving as Chief Engineer on foreign-going vessels and possesses extensive experience in marine engineering and technical management. Signed the Khulna Shipyard tripartite agreement as Chief Executive Officer, representing Solarhub Technology Ltd. as Power Producer.",
+    highlight: "Chief Engineer (Marine) · Bangladesh Marine Academy",
+    body: "Director of Solarhub Technology Ltd. A Chief Engineer (Marine) and graduate of Bangladesh Marine Academy, Juldia, Chattogram, with extensive experience in marine engineering and technical management on foreign-going vessels. Brings rigorous technical judgement to Solarhub's engineering and commissioning standards, and represented the company on the Khulna Shipyard Limited tripartite rooftop solar agreement.",
+  },
+  {
+    role: "Director",
+    name: "Md. Sazzad Amin",
+    highlight: "Managing Director, Peak Apparels Ltd.",
+    body: "Director of Solarhub Technology Ltd. and Managing Director of Peak Apparels Limited. Holds a B.Sc. in Marine Engineering with over 25 years of business experience spanning garments manufacturing, project management and corporate finance. His group leadership across Peak Apparels and related concerns strengthens Solarhub's commercial execution and industrial partnerships.",
   },
 ];
 

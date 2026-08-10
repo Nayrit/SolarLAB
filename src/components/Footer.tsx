@@ -1,5 +1,4 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
 import { Logo } from "./Logo";
 import { company, footerNav, navCta } from "@/lib/content";
 
@@ -135,16 +134,26 @@ export function Footer() {
                   lineHeight: 1.5,
                 }}
               >
-                {company.officeShort}
+                Registered: {company.officeShort}
+              </span>
+              <span
+                style={{
+                  color: "color-mix(in srgb, var(--color-bg) 65%, transparent)",
+                  lineHeight: 1.5,
+                }}
+              >
+                Corporate: {company.corporateOfficeShort}
+              </span>
+              <span
+                style={{
+                  color: "color-mix(in srgb, var(--color-bg) 65%, transparent)",
+                  lineHeight: 1.5,
+                }}
+              >
+                Business: {company.businessAddressShort}
               </span>
             </div>
             <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
-              <SocialLink href="/contact" label="LinkedIn">
-                <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3-.02-2.96-1.8-2.96-1.8 0-2.08 1.4-2.08 2.86V21H9z" />
-              </SocialLink>
-              <SocialLink href="/contact" label="Facebook">
-                <path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.25-1.5 1.5-1.5H16.7V4a20 20 0 0 0-2.3-.12c-2.3 0-3.9 1.4-3.9 4v2.1H8v3h2.5v8z" />
-              </SocialLink>
               <a
                 href={`mailto:${company.email}`}
                 aria-label="Email"
@@ -171,6 +180,31 @@ export function Footer() {
                   <path d="m2 6 10 7 10-7" />
                 </svg>
               </a>
+              <a
+                href={company.phones[0].href}
+                aria-label="Call Solarhub"
+                style={{
+                  width: 34,
+                  height: 34,
+                  display: "grid",
+                  placeItems: "center",
+                  border:
+                    "1px solid color-mix(in srgb, var(--color-bg) 35%, transparent)",
+                  color: "var(--color-bg)",
+                }}
+              >
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden="true"
+                >
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.35a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.75.34 1.54.57 2.35.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
@@ -187,47 +221,15 @@ export function Footer() {
           }}
         >
           <span>
-            © 2026 Solarhub Technology Ltd. · Reg. under the Companies Act 1994 ·
-            No. {company.regNo}
+            © 2026 Solarhub Technology Ltd. · {company.legalStatus} · Reg. No.{" "}
+            {company.regNo}
           </span>
-          <span>Registered {company.registered} · Chattogram, Bangladesh</span>
+          <span>
+            Trade licence {company.tradeLicense} · Incorporated{" "}
+            {company.registered}
+          </span>
         </div>
       </div>
     </footer>
-  );
-}
-
-function SocialLink({
-  href,
-  label,
-  children,
-}: {
-  href: string;
-  label: string;
-  children: ReactNode;
-}) {
-  return (
-    <Link
-      href={href}
-      aria-label={label}
-      style={{
-        width: 34,
-        height: 34,
-        display: "grid",
-        placeItems: "center",
-        border: "1px solid color-mix(in srgb, var(--color-bg) 35%, transparent)",
-        color: "var(--color-bg)",
-      }}
-    >
-      <svg
-        width="15"
-        height="15"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        aria-hidden="true"
-      >
-        {children}
-      </svg>
-    </Link>
   );
 }

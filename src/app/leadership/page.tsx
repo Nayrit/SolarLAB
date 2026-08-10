@@ -13,7 +13,7 @@ export default function LeadershipPage() {
       <PageHero
         kicker="Leadership"
         title="Board & leadership"
-        description="Industrial heritage from Master Simex Paper and Peak Apparels, with marine engineering depth and a CEO who signed the Khulna Shipyard flagship."
+        description="Industrial heritage from Master Simex Paper and Peak Apparels, with marine engineering depth led by Managing Director Muhammad Abu Hasan."
         breadcrumbs={[
           { name: "About", path: "/about" },
           { name: "Leadership", path: "/leadership" },

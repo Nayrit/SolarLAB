@@ -1,5 +1,6 @@
 const items = [
-  "Reg. CH-16658",
+  "Reg. CH-16658/2026",
+  "Trade licence · DSCC",
   "RE Policy 2025",
   "SREDA Net Metering 2025",
   "Tripartite PPA · WZPDCL",
