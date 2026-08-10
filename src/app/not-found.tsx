@@ -2,7 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Page not found",
+  title: {
+    absolute: "Solarhub Technology",
+  },
   description: "The page you requested does not exist on Solarhub Technology.",
   robots: {
     index: false,

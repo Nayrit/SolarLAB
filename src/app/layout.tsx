@@ -31,13 +31,19 @@ const homeMeta = buildMetadata(SEO_PAGES.home);
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default:
-      SEO_PAGES.home.absoluteTitle ??
-      "Solarhub Technology Ltd. — OPEX Rooftop Solar",
-    template: "%s · Solarhub Technology",
+    default: "Solarhub Technology",
+    template: "Solarhub Technology",
   },
   description: SITE.description,
-  applicationName: SITE.shortName,
+  applicationName: "Solarhub Technology",
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png", sizes: "64x64" },
+      { url: "/brand/stl-favicon.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico", sizes: "32x32" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   authors: [{ name: SITE.name, url: SITE_URL }],
   creator: SITE.name,
   publisher: SITE.name,

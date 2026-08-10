@@ -258,13 +258,13 @@ export function absoluteUrl(path = "/"): string {
 
 export function buildMetadata(page: SeoPage): Metadata {
   const url = absoluteUrl(page.path);
-  const title = page.absoluteTitle
-    ? { absolute: page.absoluteTitle }
-    : page.title;
+  // Browser tab always shows brand name; social cards keep descriptive titles.
   const ogTitle = page.ogTitle ?? page.absoluteTitle ?? page.title;
 
   return {
-    title,
+    title: {
+      absolute: "Solarhub Technology",
+    },
     description: page.description,
     keywords: page.keywords,
     alternates: {
@@ -314,7 +314,7 @@ export function organizationJsonLd() {
     name: SITE.name,
     alternateName: SITE.shortName,
     url: SITE_URL,
-    logo: absoluteUrl("/icon"),
+    logo: absoluteUrl("/apple-icon.png"),
     image: absoluteUrl("/opengraph-image"),
     description: SITE.description,
     email: SITE.email,
