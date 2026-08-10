@@ -4,7 +4,7 @@ import { safeInternalHref } from "@/lib/validation";
 
 type LogoProps = {
   href?: string;
-  /** Reserved for dark footers — official mark already works on dark and light. */
+  /** Light lockup for green/dark surfaces. */
   light?: boolean;
   showSubtitle?: boolean;
   /** Display height in CSS pixels (width scales with the lockup). */
@@ -12,10 +12,12 @@ type LogoProps = {
 };
 
 const LOGO_SRC = "/brand/solarhub-logo.png";
+const LOGO_SRC_LIGHT = "/brand/solarhub-logo-light.png";
 const LOGO_ASPECT = 405 / 73;
 
 export function Logo({
   href = "/",
+  light = false,
   size = 40,
 }: LogoProps) {
   const safeHref = safeInternalHref(href) ?? "/";
@@ -36,7 +38,7 @@ export function Logo({
       }}
     >
       <Image
-        src={LOGO_SRC}
+        src={light ? LOGO_SRC_LIGHT : LOGO_SRC}
         alt="Solarhub Technology Ltd."
         width={width}
         height={height}

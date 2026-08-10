@@ -12,6 +12,34 @@
   font-size: 13px;
 }
 
+/* Brand scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) var(--color-surface);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border: 2px solid var(--color-surface);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-600);
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--color-surface);
+}
+
 .skip-link:focus {
   top: 12px;
 }
