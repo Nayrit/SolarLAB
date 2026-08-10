@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { flagshipParties, flagshipSheds, flagshipStats } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
 
@@ -34,12 +35,30 @@ export function FlagshipSection() {
           <h2 className="display" style={{ maxWidth: "20ch" }}>
             Khulna Shipyard Limited
           </h2>
-          <p className="lede" style={{ maxWidth: "64ch", marginBottom: 44 }}>
+          <p className="lede" style={{ maxWidth: "64ch", marginBottom: 36 }}>
             A 22-year tripartite Power Purchase Agreement with Khulna Shipyard
             Ltd., a Bangladesh Navy installation, and West Zone Power
             Distribution Company Ltd. — rooftop solar under the OPEX model,
             signed 13 May 2026 in Khulna.
           </p>
+        </Reveal>
+
+        <Reveal delay={60}>
+          <figure className="flagship-photo">
+            <Image
+              src="/projects/khulna-shipyard-signing.png"
+              alt="Agreement signing ceremony at Khulna Shipyard Limited with Solarhub and institutional partners, Khulna, 13 May 2026"
+              width={1024}
+              height={654}
+              sizes="(max-width: 900px) 100vw, 1200px"
+              quality={100}
+              unoptimized
+              priority
+            />
+            <figcaption>
+              Signing ceremony · Khulna Shipyard Limited · 13 May 2026
+            </figcaption>
+          </figure>
         </Reveal>
 
         <div className="grid-divider grid-cols-4" style={{ marginBottom: 44 }}>
@@ -193,7 +212,14 @@ export function FlagshipSection() {
                     i === 0 ? "2px solid var(--color-divider)" : undefined,
                 }}
               >
-                <span className="label" style={{ fontSize: 14, letterSpacing: 0, textTransform: "none" }}>
+                <span
+                  className="label"
+                  style={{
+                    fontSize: 14,
+                    letterSpacing: 0,
+                    textTransform: "none",
+                  }}
+                >
                   {row.label}
                 </span>
                 <span className="value">{row.value}</span>

@@ -16,6 +16,7 @@ export default function FlagshipPage() {
     url: absoluteUrl("/flagship"),
     brand: { "@id": absoluteUrl("/#organization") },
     category: "Rooftop solar photovoltaic plant",
+    image: absoluteUrl("/projects/khulna-shipyard-signing.png"),
     additionalProperty: [
       {
         "@type": "PropertyValue",
