@@ -87,10 +87,10 @@ export function TelemetryPanel() {
           strokeDasharray="640"
           className="anim-sweep"
         />
-        {/* Sun — warm solar gold, not brand green */}
+        {/* Sun — warm solar gold + six matching rays */}
         <circle cx="228" cy="26" r="13" fill="#e8b84a" />
-        <g stroke="#e8b84a" strokeWidth="1.6" opacity=".85">
-          <path d="M150 78 120 116M186 78 168 118M222 80 216 120M258 82 264 120" />
+        <g stroke="#e8b84a" strokeWidth="1.6" strokeLinecap="round" opacity=".9">
+          <path d="M130 82 98 122M150 78 120 116M186 78 168 118M222 80 216 120M258 82 264 120M286 84 318 122" />
         </g>
         <g>
           <path
