@@ -120,8 +120,18 @@ export function ContactForm() {
             color: "color-mix(in srgb, var(--color-bg) 75%, transparent)",
           }}
         >
-          Thank you — a Solarhub engineer will reply within two working days to
-          schedule the rooftop assessment.
+          Thank you. This web form does not forward messages yet — please email{" "}
+          <a
+            href="mailto:solarhubtechnology@gmail.com"
+            style={{ color: "var(--color-accent-400)" }}
+          >
+            solarhubtechnology@gmail.com
+          </a>{" "}
+          or call{" "}
+          <a href="tel:+8801540731004" style={{ color: "var(--color-accent-400)" }}>
+            +88 01540-731004
+          </a>{" "}
+          to speak with the team.
         </p>
         <button
           type="button"
@@ -327,8 +337,15 @@ export function ContactForm() {
           color: "color-mix(in srgb, var(--color-bg) 55%, transparent)",
         }}
       >
-        Protected submission — rate-limited, validated server-side. We use your
-        details only to respond to this enquiry. See our{" "}
+        Protected submission — rate-limited and validated server-side. This form
+        does not store or email your message yet. For a durable enquiry, use{" "}
+        <a
+          href="mailto:solarhubtechnology@gmail.com"
+          style={{ color: "var(--color-accent-400)", textDecoration: "underline" }}
+        >
+          email
+        </a>{" "}
+        or phone. See our{" "}
         <Link
           href="/privacy"
           style={{ color: "var(--color-accent-400)", textDecoration: "underline" }}
