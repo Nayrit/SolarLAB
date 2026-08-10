@@ -32,7 +32,7 @@ export default function HomePage() {
       <ServicesSection />
       <IndustriesSection />
       <ProcessSection />
-      <FlagshipSection />
+      <FlagshipSection showPhoto={false} />
       <GroupSection />
       <PipelineSection />
       <FaqSection />
