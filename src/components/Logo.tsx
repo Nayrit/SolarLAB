@@ -1,70 +1,53 @@
+import Image from "next/image";
 import Link from "next/link";
 import { safeInternalHref } from "@/lib/validation";
 
 type LogoProps = {
   href?: string;
+  /** Reserved for dark footers — official mark already works on dark and light. */
   light?: boolean;
   showSubtitle?: boolean;
+  /** Display height in CSS pixels (width scales with the lockup). */
   size?: number;
 };
 
+const LOGO_SRC = "/brand/solarhub-logo.png";
+const LOGO_ASPECT = 405 / 73;
+
 export function Logo({
   href = "/",
-  light = false,
-  showSubtitle = true,
-  size = 26,
+  size = 28,
 }: LogoProps) {
-  const stroke = light ? "var(--color-neutral-900)" : "var(--color-bg)";
   const safeHref = safeInternalHref(href) ?? "/";
+  const height = size;
+  const width = Math.round(height * LOGO_ASPECT);
 
   return (
     <Link
       href={safeHref}
-      className="nav-brand"
+      className="nav-brand brand-logo"
+      aria-label="Solarhub Technology Ltd. home"
       style={{
-        display: "flex",
+        display: "inline-flex",
         alignItems: "center",
-        gap: 11,
-        textDecoration: "none",
-        color: light ? "var(--color-bg)" : "var(--color-text)",
         marginRight: "auto",
-        letterSpacing: "-0.02em",
+        textDecoration: "none",
+        lineHeight: 0,
       }}
     >
-      <svg
-        width={size}
-        height={size}
-        viewBox="0 0 26 26"
-        aria-hidden="true"
-      >
-        <rect width="26" height="26" fill="var(--color-accent)" />
-        <path
-          d="M4 17.5 13 6l9 11.5"
-          fill="none"
-          stroke={stroke}
-          strokeWidth="2"
-        />
-        {!light && (
-          <path
-            d="M8 17.5h10M13 6v11.5"
-            stroke={stroke}
-            strokeWidth="1.5"
-          />
-        )}
-      </svg>
-      <span>SOLARHUB</span>
-      {showSubtitle && (
-        <span
-          className="logo-subtitle"
-          style={{
-            color: light
-              ? "color-mix(in srgb, var(--color-bg) 65%, transparent)"
-              : "color-mix(in srgb, var(--color-text) 55%, transparent)",
-          }}
-        >
-          Technology Ltd.
-        </span>
-      )}
+      <Image
+        src={LOGO_SRC}
+        alt="Solarhub Technology Ltd."
+        width={width}
+        height={height}
+        priority
+        style={{
+          width: "auto",
+          height,
+          maxWidth: "min(220px, 58vw)",
+          objectFit: "contain",
+        }}
+      />
     </Link>
   );
 }

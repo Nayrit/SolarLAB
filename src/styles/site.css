@@ -1067,6 +1067,21 @@ summary::-webkit-details-marker {
   text-transform: uppercase;
 }
 
+.brand-logo img {
+  display: block;
+}
+
+@media (max-width: 560px) {
+  .logo-subtitle {
+    display: none;
+  }
+
+  .brand-logo img {
+    max-width: min(168px, 52vw) !important;
+    height: 22px !important;
+  }
+}
+
 /* ─── Tablet ─── */
 
 @media (max-width: 900px) {

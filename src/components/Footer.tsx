@@ -28,7 +28,7 @@ export function Footer() {
         >
           <div>
             <div style={{ marginBottom: 14 }}>
-              <Logo light showSubtitle={false} size={22} />
+              <Logo light showSubtitle={false} size={26} />
             </div>
             <p
               style={{
