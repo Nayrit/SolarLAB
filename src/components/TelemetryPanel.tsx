@@ -54,7 +54,7 @@ export function TelemetryPanel() {
             color: "color-mix(in srgb, var(--color-bg) 62%, transparent)",
           }}
         >
-          Live plant telemetry · simulated
+          Illustrative plant readout · not live data
         </span>
         <span
           style={{
@@ -64,7 +64,7 @@ export function TelemetryPanel() {
             color: "var(--color-accent-500)",
           }}
         >
-          ● Generating
+          ● Demo
         </span>
       </div>
 

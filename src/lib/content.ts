@@ -21,7 +21,7 @@ export const company = {
   ],
   email: "solarhubtechnology@gmail.com",
   opexLine:
-    "We carry the capital and the risk. The client pays only for the clean power they use, always below the grid tariff.",
+    "We carry the capital and the risk. The client pays only for the clean power they use, at an agreed discount to the grid tariff under the PPA.",
 };
 
 export const navLinks = [
@@ -155,7 +155,7 @@ export const whySolarhub = [
   {
     title: "Zero capital outlay",
     body: "Solarhub funds the entire system. Clients invest nothing and own no equipment risk.",
-    tag: "100% funded by us",
+    tag: "Funded by Solarhub",
   },
   {
     title: "Power below tariff",
@@ -170,7 +170,7 @@ export const whySolarhub = [
   {
     title: "Regulatory expertise",
     body: "Tripartite agreements structured under RE Policy 2025 and the SREDA Net Metering Guideline 2025.",
-    tag: "Fully compliant",
+    tag: "Policy-aligned structuring",
   },
   {
     title: "Backed by industry",
@@ -180,7 +180,7 @@ export const whySolarhub = [
   {
     title: "Proven flagship",
     body: "A signed, in-construction 1.788 MWp project with Khulna Shipyard, a Bangladesh Navy installation.",
-    tag: "Navy-grade delivery",
+    tag: "Defence-sector flagship",
   },
 ];
 
@@ -399,19 +399,19 @@ export const sisterCompanies = [
 
 export const pipeline = [
   {
-    title: "Armed Police Battalion (APBn)",
-    body: "Rooftop solar engagement under discussion for facilities nationwide.",
-    status: "In negotiation",
+    title: "Defence & security campuses",
+    body: "Large institutional rooftops with long operating horizons.",
+    status: "Target segment",
   },
   {
-    title: "Bangladesh Coast Guard",
-    body: "Rooftop solar engagement under discussion for coastal bases.",
-    status: "In negotiation",
+    title: "Coastal & maritime facilities",
+    body: "Bases, yards and related infrastructure suited to OPEX rooftop solar.",
+    status: "Target segment",
   },
   {
-    title: "Mongla Port Authority",
-    body: "Rooftop solar engagement under discussion for port infrastructure.",
-    status: "In negotiation",
+    title: "Ports & logistics hubs",
+    body: "High daytime load centres with expansive shed roofs.",
+    status: "Target segment",
   },
 ];
 
@@ -433,7 +433,7 @@ export const partnerReasons = [
   },
   {
     title: "1.788 MWp flagship signed",
-    body: "A signed, in-construction Navy-grade project.",
+    body: "A signed, in-construction defence-sector project.",
   },
   {
     title: "Backed by industry",
@@ -441,7 +441,7 @@ export const partnerReasons = [
   },
   {
     title: "Regulatory expertise",
-    body: "Full net-metering compliance.",
+    body: "Net-metering structures aligned to SREDA guidance.",
   },
   {
     title: "We run it for the term",
@@ -452,11 +452,11 @@ export const partnerReasons = [
 export const faqs = [
   {
     q: "What does the client actually pay for?",
-    a: "Only the electricity generated and consumed on site, billed per unit at an agreed discount to the grid tariff. No capital contribution, no equipment purchase, no maintenance charge.",
+    a: "Only the electricity generated and consumed on site, billed per unit at an agreed discount to the grid tariff under the PPA. No capital contribution and no equipment purchase from the client under the OPEX model.",
   },
   {
     q: "Who owns and maintains the system?",
-    a: "Solarhub owns the plant and runs it for the full term — monitoring, cleaning and preventive maintenance included. Generation performance is our responsibility, not yours.",
+    a: "Under our OPEX agreements, Solarhub owns the plant and provides monitoring, cleaning and preventive maintenance for the contract term. Performance and charges are as set out in the signed documents.",
   },
   {
     q: "What happens to surplus generation?",

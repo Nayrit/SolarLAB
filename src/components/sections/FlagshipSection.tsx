@@ -46,18 +46,18 @@ export function FlagshipSection() {
         <Reveal delay={60}>
           <figure className="flagship-photo">
             <Image
-              src="/projects/khulna-shipyard-signing.png"
-              alt="Agreement signing ceremony at Khulna Shipyard Limited with Solarhub and institutional partners, Khulna, 13 May 2026"
-              width={1920}
-              height={1226}
-              sizes="100vw"
-              quality={100}
-              unoptimized
+              src="/projects/khulna-shipyard-signing.webp"
+              alt="TPA agreement signing ceremony for the Khulna Shipyard Limited rooftop solar plant with Solarhub Technology Ltd. and partners, Khulna, 13 May 2026"
+              width={1600}
+              height={1022}
+              sizes="(max-width: 900px) 100vw, 1200px"
+              quality={85}
               priority
               style={{ width: "100%", height: "auto" }}
             />
             <figcaption>
-              Signing ceremony · Khulna Shipyard Limited · 13 May 2026
+              Signing ceremony · Khulna Shipyard Limited · 13 May 2026 · Site
+              capacity 1.788 MWp DC (≈1.5 MW AC), OPEX model as contracted
             </figcaption>
           </figure>
         </Reveal>

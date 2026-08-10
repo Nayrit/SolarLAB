@@ -29,15 +29,24 @@ export function MagneticButton({
   style,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLElement>(null);
+  const sizeRef = useRef({ w: 0, h: 0 });
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
-  const onMove = useCallback((e: MouseEvent) => {
+  const cacheSize = useCallback(() => {
     const el = ref.current;
     if (!el) return;
-    const rect = el.getBoundingClientRect();
+    sizeRef.current = { w: el.offsetWidth, h: el.offsetHeight };
+  }, []);
+
+  const onMove = useCallback((e: MouseEvent) => {
+    const { w, h } = sizeRef.current;
+    if (!w || !h) return;
+    // offsetX/Y avoid getBoundingClientRect on every move (forced reflow).
+    const x = e.nativeEvent.offsetX;
+    const y = e.nativeEvent.offsetY;
     setOffset({
-      x: (e.clientX - rect.left - rect.width / 2) * 0.2,
-      y: (e.clientY - rect.top - rect.height / 2) * 0.2,
+      x: (x - w / 2) * 0.2,
+      y: (y - h / 2) * 0.2,
     });
   }, []);
 
@@ -46,6 +55,7 @@ export function MagneticButton({
   const sharedStyle: CSSProperties = {
     ...style,
     transform: `translate3d(${offset.x}px, ${offset.y}px, 0)`,
+    willChange: "transform",
   };
 
   const safeHref = href ? safeInternalHref(href) : null;
@@ -56,6 +66,7 @@ export function MagneticButton({
         ref={ref as never}
         href={safeHref}
         className={`magnetic ${className}`}
+        onMouseEnter={cacheSize}
         onMouseMove={onMove}
         onMouseLeave={onLeave}
         style={sharedStyle}
@@ -71,6 +82,7 @@ export function MagneticButton({
       type={type}
       onClick={onClick}
       className={`magnetic ${className}`}
+      onMouseEnter={cacheSize}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       style={sharedStyle}

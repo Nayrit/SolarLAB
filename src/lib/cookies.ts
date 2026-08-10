@@ -1,13 +1,15 @@
 export const COOKIE_CONSENT_KEY = "solarhub-cookie-consent";
 export const COOKIE_SETTINGS_EVENT = "solarhub:open-cookie-settings";
 
-export type CookieConsent = "accepted" | "rejected";
+export type CookieConsent = "acknowledged" | "accepted" | "rejected";
 
 export function readCookieConsent(): CookieConsent | null {
   if (typeof window === "undefined") return null;
   try {
     const value = window.localStorage.getItem(COOKIE_CONSENT_KEY);
-    if (value === "accepted" || value === "rejected") return value;
+    if (value === "acknowledged" || value === "accepted" || value === "rejected") {
+      return value;
+    }
   } catch {
     /* private mode / blocked storage */
   }
@@ -23,11 +25,6 @@ export function writeCookieConsent(value: CookieConsent) {
   window.dispatchEvent(
     new CustomEvent("solarhub:cookie-consent-changed", { detail: value }),
   );
-}
-
-/** Optional analytics may load only when the visitor has accepted. */
-export function hasAnalyticsConsent(): boolean {
-  return readCookieConsent() === "accepted";
 }
 
 export function openCookieSettings() {

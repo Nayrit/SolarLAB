@@ -13,12 +13,12 @@ export function PipelineSection() {
         }}
       >
         <div>
-          <span className="kicker">Growth pipeline</span>
+          <span className="kicker">Growth focus</span>
           <h2 className="display" style={{ maxWidth: "14ch" }}>
             Where we&apos;re headed
           </h2>
           <p className="lede" style={{ maxWidth: "52ch", marginBottom: 20 }}>
-            What we pursue:
+            Segments we prioritise:
           </p>
           <ul
             style={{

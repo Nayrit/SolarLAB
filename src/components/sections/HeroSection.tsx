@@ -89,8 +89,8 @@ export function HeroSection() {
             }}
           >
             We finance, engineer, install and operate the solar plant on your
-            roof. You invest nothing — and buy only the power you use,
-            permanently below the grid tariff.
+            roof. You invest nothing — and buy only the power you use, at an
+            agreed discount to the grid tariff under the PPA.
           </p>
 
           <div className="hero-actions">

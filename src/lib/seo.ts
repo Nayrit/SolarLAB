@@ -11,7 +11,7 @@ export const SITE = {
   shortName: "Solarhub",
   tagline: "OPEX rooftop solar for industry in Bangladesh",
   description:
-    "Solarhub Technology Ltd. funds, builds and operates rooftop solar under the zero-capital OPEX model. Industrial and institutional clients across Bangladesh pay only for clean power — always below the grid tariff.",
+    "Solarhub Technology Ltd. funds, builds and operates rooftop solar under the zero-capital OPEX model. Industrial and institutional clients across Bangladesh pay only for clean power at an agreed discount to the grid tariff under the PPA.",
   locale: "en_BD",
   language: "en",
   email: company.email,
@@ -181,7 +181,7 @@ export const SEO_PAGES: Record<string, SeoPage> = {
     title: "Contact",
     absoluteTitle: "Contact Solarhub | Request a Rooftop Solar Assessment",
     description:
-      "Request a free rooftop solar assessment from Solarhub Technology Ltd. in Chattogram. Share roof area and bill — get capacity, tariff and savings guidance.",
+      "Contact Solarhub Technology Ltd. in Bangladesh. Share roof details and reach the team by email or phone to discuss an OPEX rooftop solar assessment.",
     keywords: [
       "contact Solarhub",
       "rooftop solar assessment Bangladesh",

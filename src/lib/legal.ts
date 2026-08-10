@@ -10,7 +10,7 @@ export const privacyPolicy = {
   title: "Privacy Policy",
   updated: "10 August 2026",
   intro:
-    "This Privacy Policy explains how Solarhub Technology Ltd. (“Solarhub”, “we”, “us”) collects, uses and protects personal information when you visit our website or contact us. We operate in Bangladesh and design this notice for visitors and business contacts of our company portfolio site.",
+    "This Privacy Policy explains how Solarhub Technology Ltd. (“Solarhub”, “we”, “us”) handles information when you visit our website or contact us. We operate in Bangladesh and design this notice for visitors and business contacts of our company portfolio site.",
   sections: [
     {
       heading: "Who we are",
@@ -22,54 +22,58 @@ export const privacyPolicy = {
     {
       heading: "Information we collect",
       paragraphs: [
-        "We collect information you choose to give us and limited technical data needed to run the site.",
+        "We collect limited information you choose to give us and technical data needed to run and protect the site.",
       ],
       bullets: [
-        "Contact & assessment form: name, organisation, email, phone, and any message details you submit (for example roof area or electricity bill context).",
-        "Communications: if you email or call us, we keep the details needed to respond.",
-        "Cookies & similar storage: a small preference record for cookie consent (stored in your browser). Essential operation of the site does not require tracking cookies.",
+        "Contact form fields: name, organisation, email, preferred model, and optional message text. There is no phone field on the web form.",
+        "Direct communications: if you email or call us, we keep the details needed to respond.",
+        "Cookie preference: a small record in your browser (localStorage) remembering that you dismissed the cookie notice. It is not used for advertising.",
         "Server logs (limited): our host may process IP address, browser type, and request timing for security, abuse prevention and reliability.",
       ],
     },
     {
+      heading: "Contact form handling (current)",
+      paragraphs: [
+        "Today, contact-form submissions are validated and rate-limited on our server, then discarded. They are not stored in a database and are not emailed onwards. For a durable enquiry, please use the published email or phone above. When we enable message delivery, we will update this notice.",
+      ],
+    },
+    {
       heading: "How we use information",
-      paragraphs: ["We use personal information only for legitimate business purposes:"],
+      paragraphs: ["When we hold personal information (for example from email or phone), we use it only for:"],
       bullets: [
-        "Responding to rooftop assessment requests and commercial enquiries.",
-        "Improving our website and protecting it against spam, fraud and abuse.",
+        "Responding to commercial and rooftop-assessment enquiries.",
+        "Protecting the website against spam, fraud and abuse.",
         "Complying with legal obligations that apply to us in Bangladesh.",
-        "If you accept optional cookies in future, measuring aggregate site usage (analytics) — only after consent.",
       ],
     },
     {
       heading: "Cookies",
       paragraphs: [
-        "We use a consent preference stored locally in your browser so we remember Accept or Reject. That preference is not used to identify you for advertising.",
-        "Today the site does not load third-party analytics or advertising cookies. If we add optional analytics later, they will run only when you have Accepted. You can change your choice anytime via “Cookie settings” in the footer.",
+        "This site does not use third-party analytics or advertising cookies. The cookie notice only records that you have acknowledged it, so the banner does not reappear on every visit. You can clear site data in your browser or use “Cookie settings” in the footer to see the notice again.",
       ],
     },
     {
       heading: "Sharing",
       paragraphs: [
-        "We do not sell personal information. We may share data with trusted processors who help us operate (for example website hosting or email delivery), under obligations to keep it secure and use it only for our instructions. We may disclose information if required by law or to protect our rights and users’ safety.",
+        "We do not sell personal information. Website hosting may process technical logs as part of operating the site. We may disclose information if required by law or to protect our rights and users’ safety.",
       ],
     },
     {
       heading: "How long we keep it",
       paragraphs: [
-        "Enquiry and form data is kept only as long as needed to handle your request and related follow-up, then deleted or anonymised unless a longer period is required for legal, accounting or dispute reasons. Cookie preferences remain in your browser until you clear site data or change the setting.",
+        "Web form posts are not retained on the server. Email and phone correspondence is kept only as long as needed to handle your request, unless a longer period is required for legal or accounting reasons. Cookie preferences remain in your browser until you clear them.",
       ],
     },
     {
       heading: "Security",
       paragraphs: [
-        "We apply practical safeguards appropriate to a company website (HTTPS, validated and rate-limited form submissions, security headers). No method of transmission or storage is perfectly secure; please avoid sending highly sensitive personal documents through the public contact form.",
+        "We apply practical safeguards appropriate to a company website (HTTPS, validated and rate-limited form submissions, security headers). No method of transmission is perfectly secure; please avoid sending highly sensitive personal documents through the public contact form.",
       ],
     },
     {
       heading: "Your choices",
       paragraphs: [
-        "You may ask us to access, correct or delete personal information we hold about you, or withdraw consent where processing is based on consent, by contacting us using the details above. You can also Reject optional cookies or clear your browser storage.",
+        "You may ask us about personal information we hold from email or phone contact, and request correction or deletion where applicable, by using the details above. You can also clear your browser storage for this site.",
       ],
     },
     {
@@ -81,7 +85,7 @@ export const privacyPolicy = {
     {
       heading: "Changes",
       paragraphs: [
-        "We may update this Privacy Policy from time to time. The “Last updated” date at the top of the page will change when we do. Continued use of the site after an update means you should review the revised notice.",
+        "We may update this Privacy Policy from time to time. The “Last updated” date at the top of the page will change when we do. Please review the revised notice after updates.",
       ],
     },
   ] satisfies LegalSection[],
