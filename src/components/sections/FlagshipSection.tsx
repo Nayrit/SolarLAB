@@ -42,13 +42,7 @@ export function FlagshipSection() {
           </p>
         </Reveal>
 
-        <div
-          className="grid-divider"
-          style={{
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 180px), 1fr))",
-            marginBottom: 44,
-          }}
-        >
+        <div className="grid-divider grid-cols-4" style={{ marginBottom: 44 }}>
           {flagshipStats.map((stat) => (
             <Reveal
               key={stat.label}

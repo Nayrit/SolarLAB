@@ -11,12 +11,7 @@ const stats = [
 export function StatsStrip() {
   return (
     <section className="container section-tight">
-      <div
-        className="grid-divider"
-        style={{
-          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 190px), 1fr))",
-        }}
-      >
+      <div className="grid-divider grid-cols-4">
         {stats.map((stat, i) => (
           <Reveal key={stat.label} delay={i * 70} style={{ padding: "26px 22px" }}>
             <p className="stat-value">

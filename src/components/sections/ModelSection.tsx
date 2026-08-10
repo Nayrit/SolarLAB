@@ -173,9 +173,8 @@ export function ModelSection() {
         </Reveal>
 
         <div
+          className="grid-cols-3"
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
             gap: 2,
             background: "color-mix(in srgb, var(--color-bg) 24%, transparent)",
             borderTop:
@@ -231,9 +230,8 @@ export function ModelSection() {
             How it works
           </h3>
           <div
+            className="grid-cols-4"
             style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))",
               gap: 2,
               background: "color-mix(in srgb, var(--color-bg) 24%, transparent)",
               borderTop:

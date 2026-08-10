@@ -13,11 +13,8 @@ export function LeadershipSection() {
         </Reveal>
 
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%,320px), 1fr))",
-            gap: "clamp(28px, 4vw, 48px)",
-          }}
+          className="grid-cols-2"
+          style={{ gap: "clamp(28px, 4vw, 48px)" }}
         >
           {leadership.map((person, i) => (
             <Reveal key={person.name} delay={i * 70}>

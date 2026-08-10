@@ -17,12 +17,7 @@ export function TechnologySection() {
           </p>
         </Reveal>
 
-        <div
-          className="grid-divider"
-          style={{
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
-          }}
-        >
+        <div className="grid-divider grid-cols-3">
           {technology.map((item, i) => (
             <Reveal
               key={item.title}

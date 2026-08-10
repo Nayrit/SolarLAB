@@ -16,12 +16,7 @@ export function WhySection() {
         </p>
       </Reveal>
 
-      <div
-        className="grid-divider"
-        style={{
-          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
-        }}
-      >
+      <div className="grid-divider grid-cols-3">
         {whySolarhub.map((item, i) => (
           <Reveal key={item.title} delay={i * 60}>
             <div className="service-card">

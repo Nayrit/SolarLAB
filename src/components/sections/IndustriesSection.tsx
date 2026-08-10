@@ -14,12 +14,7 @@ export function IndustriesSection() {
           strength in government and defence-linked procurement.
         </p>
       </Reveal>
-      <div
-        className="grid-divider"
-        style={{
-          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 210px), 1fr))",
-        }}
-      >
+      <div className="grid-divider grid-cols-4">
         {industries.map((item, i) => (
           <Reveal key={item.title} delay={i * 50}>
             <div className="industry-tile">

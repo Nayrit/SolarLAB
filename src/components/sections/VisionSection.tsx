@@ -12,9 +12,8 @@ export function VisionSection() {
       </Reveal>
 
       <div
+        className="grid-cols-2"
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%,320px), 1fr))",
           gap: 2,
           background: "var(--color-divider)",
           borderTop: "2px solid var(--color-divider)",
@@ -61,12 +60,7 @@ export function VisionSection() {
         </Reveal>
       </div>
 
-      <div
-        className="grid-divider"
-        style={{
-          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
-        }}
-      >
+      <div className="grid-divider grid-cols-3">
         {coreValues.map((value, i) => (
           <Reveal
             key={value.title}

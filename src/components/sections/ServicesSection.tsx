@@ -37,12 +37,7 @@ export function ServicesSection() {
         </div>
       </Reveal>
 
-      <div
-        className="grid-divider"
-        style={{
-          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
-        }}
-      >
+      <div className="grid-divider grid-cols-3">
         {services.map((service, i) => (
           <Reveal key={service.num} delay={i * 70}>
             <div className="service-card">

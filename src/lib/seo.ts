@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { company, faqs, services } from "@/lib/content";
+import { company, faqs, leadership, services } from "@/lib/content";
 
 /** Public site origin — set NEXT_PUBLIC_SITE_URL in production. */
 export const SITE_URL = (
@@ -76,9 +76,11 @@ export const SEO_PAGES: Record<string, SeoPage> = {
       "OPEX rooftop solar Bangladesh",
       "zero capital solar",
       "industrial solar Chattogram",
+      "industrial solar Dhaka",
       "net metering SREDA",
       "Power Purchase Agreement solar",
       "Solarhub Technology",
+      "Khulna Shipyard solar",
     ],
     changeFrequency: "weekly",
     priority: 1,
@@ -420,6 +422,25 @@ export function servicesJsonLd() {
         provider: { "@id": absoluteUrl("/#organization") },
         areaServed: "BD",
         serviceType: "Rooftop solar",
+      },
+    })),
+  };
+}
+
+export function leadershipJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Solarhub Technology Ltd. board",
+    itemListElement: leadership.map((person, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Person",
+        name: person.name,
+        jobTitle: person.role,
+        description: person.body,
+        worksFor: { "@id": absoluteUrl("/#organization") },
       },
     })),
   };

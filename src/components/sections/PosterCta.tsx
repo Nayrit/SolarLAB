@@ -64,9 +64,8 @@ export function PosterCta() {
         </Reveal>
 
         <div
+          className="grid-cols-3"
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 180px), 1fr))",
             gap: 2,
             background: "color-mix(in srgb, var(--color-bg) 35%, transparent)",
             borderTop:
