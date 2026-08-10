@@ -48,12 +48,13 @@ export function FlagshipSection() {
             <Image
               src="/projects/khulna-shipyard-signing.png"
               alt="Agreement signing ceremony at Khulna Shipyard Limited with Solarhub and institutional partners, Khulna, 13 May 2026"
-              width={1024}
-              height={654}
-              sizes="(max-width: 900px) 100vw, 1200px"
+              width={1920}
+              height={1226}
+              sizes="100vw"
               quality={100}
               unoptimized
               priority
+              style={{ width: "100%", height: "auto" }}
             />
             <figcaption>
               Signing ceremony · Khulna Shipyard Limited · 13 May 2026

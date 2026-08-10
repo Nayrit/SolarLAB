@@ -644,15 +644,14 @@ summary::-webkit-details-marker {
   margin: 0 0 44px;
   border: 2px solid var(--color-divider);
   background: var(--color-bg);
+  overflow: hidden;
 }
 
 .flagship-photo img {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 1024 / 654;
-  object-fit: cover;
-  object-position: center center;
+  max-width: 100%;
 }
 
 .flagship-photo figcaption {
