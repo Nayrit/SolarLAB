@@ -16,7 +16,7 @@ const LOGO_ASPECT = 405 / 73;
 
 export function Logo({
   href = "/",
-  size = 28,
+  size = 40,
 }: LogoProps) {
   const safeHref = safeInternalHref(href) ?? "/";
   const height = size;
@@ -44,7 +44,7 @@ export function Logo({
         style={{
           width: "auto",
           height,
-          maxWidth: "min(220px, 58vw)",
+          maxWidth: "min(280px, 68vw)",
           objectFit: "contain",
         }}
       />

@@ -25,7 +25,7 @@ export function Header() {
   return (
     <header className={`site-header${scrolled ? " scrolled" : ""}`}>
       <nav className="nav" aria-label="Primary">
-        <Logo showSubtitle size={30} />
+        <Logo showSubtitle size={44} />
         <button
           type="button"
           className="nav-toggle"

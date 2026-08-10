@@ -1077,8 +1077,8 @@ summary::-webkit-details-marker {
   }
 
   .brand-logo img {
-    max-width: min(168px, 52vw) !important;
-    height: 22px !important;
+    max-width: min(220px, 64vw) !important;
+    height: 30px !important;
   }
 }
 
