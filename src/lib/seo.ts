@@ -181,7 +181,7 @@ export const SEO_PAGES: Record<string, SeoPage> = {
     title: "Contact",
     absoluteTitle: "Contact Solarhub | Request a Rooftop Solar Assessment",
     description:
-      "Contact Solarhub Technology Ltd. in Bangladesh. Share roof details and reach the team by email or phone to discuss an OPEX rooftop solar assessment.",
+      "Contact Solarhub Technology Ltd. in Bangladesh. Request a rooftop solar assessment — the team follows up by email or phone.",
     keywords: [
       "contact Solarhub",
       "rooftop solar assessment Bangladesh",

@@ -51,28 +51,49 @@ export function ContactForm() {
 
     setSubmitting(true);
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({ name, email, org, message, model, website: "" }),
-        credentials: "same-origin",
-      });
+      const payload = { name, email, org, message, model, website: "" };
+      let ok = false;
 
-      const payload = (await res.json().catch(() => null)) as {
-        ok?: boolean;
-        error?: string;
-      } | null;
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+          credentials: "same-origin",
+        });
+        const data = (await res.json().catch(() => null)) as {
+          ok?: boolean;
+          error?: string;
+        } | null;
 
-      if (!res.ok || !payload?.ok) {
         if (res.status === 429) {
           setError("Too many requests. Please wait a few minutes and try again.");
-        } else {
-          setError(payload?.error ?? "Something went wrong. Please try again.");
+          return;
         }
-        return;
+        ok = Boolean(res.ok && data?.ok);
+      } catch {
+        ok = false;
+      }
+
+      // cPanel / static fallback — emails Gmail via FormSubmit with no API key
+      if (!ok) {
+        const { deliverContactEnquiryClient } = await import(
+          "@/lib/contact-delivery"
+        );
+        const delivered = await deliverContactEnquiryClient({
+          name,
+          email,
+          org,
+          message,
+          model,
+        });
+        if (!delivered.ok) {
+          setError(delivered.error);
+          return;
+        }
       }
 
       setSent(true);
@@ -120,18 +141,13 @@ export function ContactForm() {
             color: "color-mix(in srgb, var(--color-bg) 75%, transparent)",
           }}
         >
-          Thank you. This web form does not forward messages yet — please email{" "}
-          <a
-            href="mailto:solarhubtechnology@gmail.com"
-            style={{ color: "var(--color-accent-400)" }}
-          >
-            solarhubtechnology@gmail.com
-          </a>{" "}
-          or call{" "}
+          Thank you — we received your request and emailed the Solarhub team.
+          Someone will follow up by email, usually within two working days. For
+          something urgent, call{" "}
           <a href="tel:+8801540731004" style={{ color: "var(--color-accent-400)" }}>
             +88 01540-731004
-          </a>{" "}
-          to speak with the team.
+          </a>
+          .
         </p>
         <button
           type="button"
@@ -337,15 +353,8 @@ export function ContactForm() {
           color: "color-mix(in srgb, var(--color-bg) 55%, transparent)",
         }}
       >
-        Protected submission — rate-limited and validated server-side. This form
-        does not store or email your message yet. For a durable enquiry, use{" "}
-        <a
-          href="mailto:solarhubtechnology@gmail.com"
-          style={{ color: "var(--color-accent-400)", textDecoration: "underline" }}
-        >
-          email
-        </a>{" "}
-        or phone. See our{" "}
+        Protected submission — rate-limited and validated server-side. Your
+        details are emailed to Solarhub so we can respond. See our{" "}
         <Link
           href="/privacy"
           style={{ color: "var(--color-accent-400)", textDecoration: "underline" }}

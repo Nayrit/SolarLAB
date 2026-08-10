@@ -27,21 +27,23 @@ export const privacyPolicy = {
       bullets: [
         "Contact form fields: name, organisation, email, preferred model, and optional message text. There is no phone field on the web form.",
         "Direct communications: if you email or call us, we keep the details needed to respond.",
-        "Cookie preference: a small record in your browser (localStorage) remembering that you dismissed the cookie notice. It is not used for advertising.",
+        "Cookie preference: a small record in your browser remembering Accept or Reject for analytics.",
+        "Google Analytics (only if you Accept): aggregate page views and traffic sources. IP anonymization is enabled. Reject disables this.",
         "Server logs (limited): our host may process IP address, browser type, and request timing for security, abuse prevention and reliability.",
       ],
     },
     {
-      heading: "Contact form handling (current)",
+      heading: "Contact form handling",
       paragraphs: [
-        "Today, contact-form submissions are validated and rate-limited on our server, then discarded. They are not stored in a database and are not emailed onwards. For a durable enquiry, please use the published email or phone above. When we enable message delivery, we will update this notice.",
+        `Contact-form submissions are validated and rate-limited when our application server is available, then emailed to ${company.email} using free form-delivery services (FormSubmit and optionally Web3Forms) so we can reply. On some hosts a PHP mail fallback may also be used. We do not keep a separate database of form posts on this website.`,
       ],
     },
     {
       heading: "How we use information",
-      paragraphs: ["When we hold personal information (for example from email or phone), we use it only for:"],
+      paragraphs: ["We use personal information only for:"],
       bullets: [
         "Responding to commercial and rooftop-assessment enquiries.",
+        "Understanding aggregate website traffic (if you accept analytics) so we can improve the site.",
         "Protecting the website against spam, fraud and abuse.",
         "Complying with legal obligations that apply to us in Bangladesh.",
       ],
@@ -49,19 +51,19 @@ export const privacyPolicy = {
     {
       heading: "Cookies",
       paragraphs: [
-        "This site does not use third-party analytics or advertising cookies. The cookie notice only records that you have acknowledged it, so the banner does not reappear on every visit. You can clear site data in your browser or use “Cookie settings” in the footer to see the notice again.",
+        "Essential preference storage remembers your analytics choice. Google Analytics cookies load only after you Accept. You can change your choice anytime via “Cookie settings” in the footer, or clear site data in your browser.",
       ],
     },
     {
       heading: "Sharing",
       paragraphs: [
-        "We do not sell personal information. Website hosting may process technical logs as part of operating the site. We may disclose information if required by law or to protect our rights and users’ safety.",
+        "We do not sell personal information. Form delivery uses FormSubmit (and optionally Web3Forms) so your enquiry can reach our inbox. If you accept analytics, Google processes measurement data under their terms. Website hosting may process technical logs. We may disclose information if required by law or to protect our rights and users’ safety.",
       ],
     },
     {
       heading: "How long we keep it",
       paragraphs: [
-        "Web form posts are not retained on the server. Email and phone correspondence is kept only as long as needed to handle your request, unless a longer period is required for legal or accounting reasons. Cookie preferences remain in your browser until you clear them.",
+        "Enquiry emails remain in our mailbox only as long as needed to handle your request and related follow-up, unless a longer period is required for legal or accounting reasons. Analytics retention follows your Google Analytics property settings. Cookie preferences remain in your browser until you clear them.",
       ],
     },
     {

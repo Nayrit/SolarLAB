@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { deliverContactEnquiry } from "@/lib/contact-delivery";
 import {
   ALLOWED_MODELS,
   CONTACT_LIMITS,
@@ -71,7 +72,6 @@ export async function POST(request: Request) {
   // Honeypot — bots fill hidden fields; humans leave empty.
   const honeypot = sanitizeText(body.website, 100);
   if (honeypot) {
-    // Fake success so scrapers learn nothing useful.
     return NextResponse.json(
       { ok: true },
       { status: 200, headers: { "Cache-Control": "no-store" } },
@@ -94,9 +94,17 @@ export async function POST(request: Request) {
     return jsonError(400, "Invalid model");
   }
 
-  // Intentional: no outbound email / DB write in this demo.
-  // Validated payload is discarded so PII is not retained on the server.
-  void { name, email, org, message, model, receivedAt: new Date().toISOString() };
+  const delivered = await deliverContactEnquiry({
+    name,
+    email,
+    org,
+    message,
+    model,
+  });
+
+  if (!delivered.ok) {
+    return jsonError(503, delivered.error);
+  }
 
   return NextResponse.json(
     { ok: true },

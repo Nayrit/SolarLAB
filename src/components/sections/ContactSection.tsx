@@ -41,8 +41,8 @@ export function ContactSection({ asPage = false }: ContactSectionProps) {
               color: "color-mix(in srgb, var(--color-bg) 78%, transparent)",
             }}
           >
-            Share location, rooftop area and monthly bill — then reach us by
-            email or phone to discuss capacity, tariff and next steps.
+            Share location, rooftop area and monthly bill. We&apos;ll follow up
+            by email to discuss capacity, tariff and next steps.
           </p>
 
           <div className="meta-row">

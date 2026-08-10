@@ -10,14 +10,14 @@ export function proxy(request: NextRequest) {
 
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${isDev ? " 'unsafe-eval'" : ""};
+    script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${isDev ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://www.google-analytics.com;
     style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data: https://images.unsplash.com;
+    img-src 'self' blob: data: https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com;
     font-src 'self';
-    connect-src 'self';
+    connect-src 'self' https://api.web3forms.com https://formsubmit.co https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com;
     object-src 'none';
     base-uri 'self';
-    form-action 'self';
+    form-action 'self' https://formsubmit.co;
     frame-ancestors 'none';
     frame-src 'none';
     worker-src 'self' blob:;

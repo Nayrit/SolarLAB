@@ -7,7 +7,11 @@ export function readCookieConsent(): CookieConsent | null {
   if (typeof window === "undefined") return null;
   try {
     const value = window.localStorage.getItem(COOKIE_CONSENT_KEY);
-    if (value === "acknowledged" || value === "accepted" || value === "rejected") {
+    if (
+      value === "acknowledged" ||
+      value === "accepted" ||
+      value === "rejected"
+    ) {
       return value;
     }
   } catch {
@@ -25,6 +29,10 @@ export function writeCookieConsent(value: CookieConsent) {
   window.dispatchEvent(
     new CustomEvent("solarhub:cookie-consent-changed", { detail: value }),
   );
+}
+
+export function hasAnalyticsConsent(): boolean {
+  return readCookieConsent() === "accepted";
 }
 
 export function openCookieSettings() {

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
   COOKIE_SETTINGS_EVENT,
+  type CookieConsent as ConsentValue,
   readCookieConsent,
   writeCookieConsent,
 } from "@/lib/cookies";
@@ -16,12 +17,21 @@ export function CookieConsent() {
       if (readCookieConsent() === null) setVisible(true);
     };
 
-    // Defer so the banner is not the LCP element on first paint.
     let idleId: number | undefined;
     let timeoutId: ReturnType<typeof setTimeout> | undefined;
 
     const openFromFooter = () => setVisible(true);
     window.addEventListener(COOKIE_SETTINGS_EVENT, openFromFooter);
+
+    // Migrate old "acknowledged" (no analytics) → ask again for GA choice
+    const existing = readCookieConsent();
+    if (existing === "acknowledged") {
+      try {
+        window.localStorage.removeItem("solarhub-cookie-consent");
+      } catch {
+        /* ignore */
+      }
+    }
 
     if (readCookieConsent() !== null) {
       return () => window.removeEventListener(COOKIE_SETTINGS_EVENT, openFromFooter);
@@ -42,31 +52,38 @@ export function CookieConsent() {
     };
   }, []);
 
-  const dismiss = () => {
-    writeCookieConsent("acknowledged");
+  const choose = (value: Extract<ConsentValue, "accepted" | "rejected">) => {
+    writeCookieConsent(value);
     setVisible(false);
   };
 
   if (!visible) return null;
 
   return (
-    <div
-      className="cookie-banner"
-      role="region"
-      aria-label="Cookie notice"
-    >
+    <div className="cookie-banner" role="region" aria-label="Cookie notice">
       <div className="cookie-banner-inner">
         <div className="cookie-banner-copy">
           <p className="cookie-banner-title">Cookies</p>
           <p>
-            We only store a small preference in your browser so this notice does
-            not reappear. We do not use analytics or advertising cookies.{" "}
+            We use a preference cookie and, if you accept, Google Analytics to
+            understand visits (works on any host including cPanel).{" "}
             <Link href="/privacy">Privacy Policy</Link>
           </p>
         </div>
         <div className="cookie-banner-actions">
-          <button type="button" className="btn btn-primary" onClick={dismiss}>
-            Got it
+          <button
+            type="button"
+            className="btn btn-secondary cookie-btn-reject"
+            onClick={() => choose("rejected")}
+          >
+            Reject
+          </button>
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={() => choose("accepted")}
+          >
+            Accept
           </button>
         </div>
       </div>
