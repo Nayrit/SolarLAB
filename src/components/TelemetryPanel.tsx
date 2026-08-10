@@ -82,9 +82,10 @@ export function TelemetryPanel() {
         <path
           d="M40 60a120 120 0 0 1 240 0"
           fill="none"
-          stroke="color-mix(in srgb, var(--color-bg) 40%, transparent)"
+          stroke="#e8b84a"
           strokeWidth="1.5"
           strokeDasharray="640"
+          opacity=".85"
           className="anim-sweep"
         />
         {/* Sun — warm solar gold + four rays onto the array */}
