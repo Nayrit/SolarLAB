@@ -125,24 +125,28 @@ export const leadership = [
     role: "Chairman",
     name: "Dewan Ali Kabir",
     highlight: "Managing Director, Master Simex Paper Limited",
+    image: "/leadership/dewan-ali-kabir.jpg",
     body: "Chairman of Solarhub Technology Ltd. and Managing Director of Master Simex Paper Limited, an ISO 9001:2015-certified specialty paper manufacturer within Emerging Group Bangladesh. Over 25 years of business leadership, with a degree in Finance from the University of Dhaka. Under his stewardship Master Simex has grown into one of the country's leading paper converting and printing businesses — multiple production facilities, a large industrial workforce, and supply relationships spanning government and banking clients. That industrial and financial depth underpins Solarhub's capacity to fund and deliver long-term OPEX rooftop plants.",
   },
   {
     role: "Managing Director",
     name: "Muhammad Abu Hasan",
     highlight: "Chief Engineer (Marine) · 30+ years",
+    image: "/leadership/muhammad-abu-hasan.jpg",
     body: "Managing Director of Solarhub Technology Ltd. A Chief Engineer with more than 30 years of experience in the marine industry, actively involved in marine-related business and technical operations. His engineering discipline and operational leadership guide Solarhub's project delivery, safety standards and long-term plant performance.",
   },
   {
     role: "Director",
     name: "Mohammad Nasimul Huq",
     highlight: "Chief Engineer (Marine) · Bangladesh Marine Academy",
+    image: "/leadership/mohammad-nasimul-huq.jpg",
     body: "Director of Solarhub Technology Ltd. A Chief Engineer (Marine) and graduate of Bangladesh Marine Academy, Juldia, Chattogram, with extensive experience in marine engineering and technical management on foreign-going vessels. Brings rigorous technical judgement to Solarhub's engineering and commissioning standards, and represented the company on the Khulna Shipyard Limited tripartite rooftop solar agreement.",
   },
   {
     role: "Director",
     name: "Md. Sazzad Amin",
     highlight: "Managing Director, Peak Apparels Ltd.",
+    image: "/leadership/md-sazzad-amin.jpg",
     body: "Director of Solarhub Technology Ltd. and Managing Director of Peak Apparels Limited. Holds a B.Sc. in Marine Engineering with over 25 years of business experience spanning garments manufacturing, project management and corporate finance. His group leadership across Peak Apparels and related concerns strengthens Solarhub's commercial execution and industrial partnerships.",
   },
 ];

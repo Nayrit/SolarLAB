@@ -595,6 +595,23 @@ summary::-webkit-details-marker {
   border-top-color: var(--color-accent);
 }
 
+.leader-photo {
+  margin: 0 0 20px;
+  aspect-ratio: 4 / 5;
+  max-width: min(280px, 100%);
+  overflow: hidden;
+  background: var(--color-bg);
+  border: 2px solid var(--color-divider);
+}
+
+.leader-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
 .group-card {
   padding: 8px 0;
   border-top: 2px solid transparent;

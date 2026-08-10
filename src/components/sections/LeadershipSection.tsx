@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { leadership } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
 
@@ -19,6 +20,15 @@ export function LeadershipSection() {
           {leadership.map((person, i) => (
             <Reveal key={person.name} delay={i * 70}>
               <article className="leader-card">
+                <div className="leader-photo">
+                  <Image
+                    src={person.image}
+                    alt={`${person.name}, ${person.role} of Solarhub Technology Ltd.`}
+                    width={740}
+                    height={900}
+                    sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 320px"
+                  />
+                </div>
                 <span
                   style={{
                     display: "block",

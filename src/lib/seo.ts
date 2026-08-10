@@ -440,6 +440,7 @@ export function leadershipJsonLd() {
         name: person.name,
         jobTitle: person.role,
         description: person.body,
+        image: absoluteUrl(person.image),
         worksFor: { "@id": absoluteUrl("/#organization") },
       },
     })),
